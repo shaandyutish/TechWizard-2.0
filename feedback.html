@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feedback | TechWizard 2.0</title>
+    <meta name="description"
+        content="Share your TechWizard 2.0 experience with us. Your feedback helps improve future editions." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <canvas id="particles-canvas"></canvas>
+
+    <nav id="navbar">
+        <div class="nav-container">
+            <a class="nav-brand" href="index.html">
+                <img src="techwizard-logo-DUeFv3V1.jpeg" alt="TechWizard 2.0 Logo" class="nav-logo" />
+                <span class="nav-title">TECHWIZARD 2.0</span>
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="problems.html">Problems</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="prizes.html">Prizes</a></li>
+                <li><a href="rules.html">Rules</a></li>
+                <li><a href="register.html" class="nav-cta">Register</a></li>
+                <li><a href="feedback.html" class="active">Feedback</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="page-hero">
+        <div class="page-hero-content">
+            <span class="section-tag">Share Your Experience</span>
+            <h1 class="page-hero-title">Event <span class="highlight">Feedback</span></h1>
+            <p class="page-hero-sub">Your feedback helps us improve future editions</p>
+        </div>
+    </div>
+
+    <section class="section feedback-section">
+        <div class="container">
+            <div class="form-wrapper feedback-wrap">
+                <form id="feedback-form" class="reg-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fb-name">Your Name <span class="req">*</span></label>
+                            <input type="text" id="fb-name" name="fb_name" placeholder="Full name" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="fb-email">Email Address <span class="req">*</span></label>
+                            <input type="email" id="fb-email" name="fb_email" placeholder="you@email.com" required />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fb-college">College / University</label>
+                            <input type="text" id="fb-college" name="fb_college" placeholder="Your institution" />
+                        </div>
+                        <div class="form-group">
+                            <label for="fb-role">Your Role <span class="req">*</span></label>
+                            <select id="fb-role" name="fb_role" required>
+                                <option value="" disabled selected>Select role</option>
+                                <option>Participant</option>
+                                <option>Mentor</option>
+                                <option>Judge</option>
+                                <option>Organiser</option>
+                                <option>Visitor</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label>Overall Experience <span class="req">*</span></label>
+                        <div class="star-rating" id="star-rating">
+                            <span class="star" data-val="1">★</span>
+                            <span class="star" data-val="2">★</span>
+                            <span class="star" data-val="3">★</span>
+                            <span class="star" data-val="4">★</span>
+                            <span class="star" data-val="5">★</span>
+                        </div>
+                        <input type="hidden" id="fb-rating" name="fb_rating" required />
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="fb-best">What did you like the most?</label>
+                        <textarea id="fb-best" name="fb_best" rows="3"
+                            placeholder="Tell us what we did well..."></textarea>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="fb-improve">What can we improve? <span class="req">*</span></label>
+                        <textarea id="fb-improve" name="fb_improve" rows="3" placeholder="Your honest suggestions..."
+                            required></textarea>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="fb-recommend">Would you recommend TechWizard to others? <span
+                                class="req">*</span></label>
+                        <select id="fb-recommend" name="fb_recommend" required>
+                            <option value="" disabled selected>Select</option>
+                            <option>Definitely Yes</option>
+                            <option>Probably Yes</option>
+                            <option>Not Sure</option>
+                            <option>Probably No</option>
+                            <option>Definitely No</option>
+                        </select>
+                    </div>
+
+                    <div class="form-submit">
+                        <button type="submit" id="fb-submit-btn" class="btn btn-primary btn-large">
+                            <span>Submit Feedback →</span>
+                        </button>
+                        <p class="form-note">You'll be redirected to our official Google Form to complete your feedback
+                            submission.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-icon">📝</div>
+            <h3 id="modal-title">Redirecting to Google Form</h3>
+            <p id="modal-desc">You're being redirected to the official Google Form to submit your feedback.</p>
+            <div class="modal-btns">
+                <a href="#" id="modal-proceed-btn" class="btn btn-primary" target="_blank" rel="noopener">Proceed to
+                    Google Form</a>
+                <button class="btn btn-outline" id="modal-cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="techwizard-logo-DUeFv3V1.jpeg" alt="TechWizard 2.0" class="footer-logo" />
+                    <div>
+                        <h3>TechWizard 2.0</h3>
+                        <p>National Hackathon – Haridwar University</p>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="problems.html">Problems</a></li>
+                        <li><a href="schedule.html">Schedule</a></li>
+                        <li><a href="prizes.html">Prizes</a></li>
+                        <li><a href="register.html">Register</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p>Shubham: <a href="tel:+916394658895">+91 63946 58895</a></p>
+                    <p>Deepak: <a href="tel:+917906924141">+91 79069 24141</a></p>
+                    <p><a href="mailto:tech.club.trojan@gmail.com">tech.club.trojan@gmail.com</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Powered by <strong>Trojan Tech Club</strong> &amp; <strong>Unstop</strong> · Haridwar University
+                    &copy; 2026</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

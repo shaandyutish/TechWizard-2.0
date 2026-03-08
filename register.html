@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register | TechWizard 2.0</title>
+    <meta name="description"
+        content="Register your team for TechWizard 2.0 hackathon at Haridwar University. Entry fee ₹1,500 per team." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <canvas id="particles-canvas"></canvas>
+
+    <nav id="navbar">
+        <div class="nav-container">
+            <a class="nav-brand" href="index.html">
+                <img src="techwizard-logo-DUeFv3V1.jpeg" alt="TechWizard 2.0 Logo" class="nav-logo" />
+                <span class="nav-title">TECHWIZARD 2.0</span>
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="problems.html">Problems</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="prizes.html">Prizes</a></li>
+                <li><a href="rules.html">Rules</a></li>
+                <li><a href="register.html" class="nav-cta active">Register</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="page-hero">
+        <div class="page-hero-content">
+            <span class="section-tag">Join the Battle</span>
+            <h1 class="page-hero-title">Team <span class="highlight">Registration</span></h1>
+            <p class="page-hero-sub">Entry fee ₹1,500 per team · 20–21 March 2026</p>
+        </div>
+    </div>
+
+    <section class="section register-section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-desc">Fill in your team details below. On submission you'll be redirected to our
+                    official Google Form to complete payment &amp; confirmation.</p>
+            </div>
+            <div class="form-wrapper">
+                <div class="form-decoration"></div>
+                <form id="registration-form" class="reg-form">
+                    <div class="form-section-title">👥 Team Information</div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="team-name">Team Name <span class="req">*</span></label>
+                            <input type="text" id="team-name" name="team_name" placeholder="e.g. CodeCrusaders"
+                                required />
+                        </div>
+                        <div class="form-group">
+                            <label for="college-name">College / University <span class="req">*</span></label>
+                            <input type="text" id="college-name" name="college_name" placeholder="Your institution name"
+                                required />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="problem-domain">Problem Domain <span class="req">*</span></label>
+                            <select id="problem-domain" name="problem_domain" required>
+                                <option value="" disabled selected>Select a domain</option>
+                                <option>Student Innovation (Hardware/Software)</option>
+                                <option>Women Safety</option>
+                                <option>Smart Agriculture</option>
+                                <option>Healthcare &amp; MedTech</option>
+                                <option>Disaster Management</option>
+                                <option>Education</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="team-size">Team Size <span class="req">*</span></label>
+                            <select id="team-size" name="team_size" required>
+                                <option value="" disabled selected>Number of members</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-section-title">🧑‍💻 Team Leader Details</div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="leader-name">Leader Full Name <span class="req">*</span></label>
+                            <input type="text" id="leader-name" name="leader_name" placeholder="Full name" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="leader-email">Leader Email <span class="req">*</span></label>
+                            <input type="email" id="leader-email" name="leader_email" placeholder="leader@email.com"
+                                required />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="leader-phone">Leader Phone <span class="req">*</span></label>
+                            <input type="tel" id="leader-phone" name="leader_phone" placeholder="+91 XXXXX XXXXX"
+                                required />
+                        </div>
+                        <div class="form-group">
+                            <label for="leader-year">Year of Study <span class="req">*</span></label>
+                            <select id="leader-year" name="leader_year" required>
+                                <option value="" disabled selected>Select year</option>
+                                <option>1st Year</option>
+                                <option>2nd Year</option>
+                                <option>3rd Year</option>
+                                <option>4th Year</option>
+                                <option>Postgraduate</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-section-title">📝 Project Details</div>
+                    <div class="form-group full-width">
+                        <label for="project-title">Project Title <span class="req">*</span></label>
+                        <input type="text" id="project-title" name="project_title"
+                            placeholder="Brief title of your project idea" required />
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="project-desc">Project Description <span class="req">*</span></label>
+                        <textarea id="project-desc" name="project_desc" rows="4"
+                            placeholder="Describe your project idea in 100–200 words..." required></textarea>
+                    </div>
+
+                    <div class="form-group full-width checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="female-confirm" name="female_confirm" required />
+                            <span class="checkmark"></span>
+                            I confirm that our team includes <strong>at least 1 female member</strong> (mandatory)
+                        </label>
+                    </div>
+                    <div class="form-group full-width checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="rules-confirm" name="rules_confirm" required />
+                            <span class="checkmark"></span>
+                            I agree to the hackathon rules and confirm that all team members are registered participants
+                        </label>
+                    </div>
+
+                    <div class="form-submit">
+                        <button type="submit" id="reg-submit-btn" class="btn btn-primary btn-large">
+                            <span>Proceed to Google Form →</span>
+                        </button>
+                        <p class="form-note">You will be redirected to the official Google Form to submit your full team
+                            details and complete payment (₹1,500 per team).</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-icon">🚀</div>
+            <h3 id="modal-title">Redirecting to Google Form</h3>
+            <p id="modal-desc">You're being redirected to the official Google Form. Please complete all fields there to
+                finalise your registration.</p>
+            <div class="modal-btns">
+                <a href="#" id="modal-proceed-btn" class="btn btn-primary" target="_blank" rel="noopener">Proceed to
+                    Google Form</a>
+                <button class="btn btn-outline" id="modal-cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="techwizard-logo-DUeFv3V1.jpeg" alt="TechWizard 2.0" class="footer-logo" />
+                    <div>
+                        <h3>TechWizard 2.0</h3>
+                        <p>National Hackathon – Haridwar University</p>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="problems.html">Problems</a></li>
+                        <li><a href="schedule.html">Schedule</a></li>
+                        <li><a href="prizes.html">Prizes</a></li>
+                        <li><a href="register.html">Register</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p>Shubham: <a href="tel:+916394658895">+91 63946 58895</a></p>
+                    <p>Deepak: <a href="tel:+917906924141">+91 79069 24141</a></p>
+                    <p><a href="mailto:tech.club.trojan@gmail.com">tech.club.trojan@gmail.com</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Powered by <strong>Trojan Tech Club</strong> &amp; <strong>Unstop</strong> · Haridwar University
+                    &copy; 2026</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

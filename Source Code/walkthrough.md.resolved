@@ -1,0 +1,58 @@
+# TechWizard 2.0 – Website Walkthrough
+
+## Files Created
+
+| File | Location |
+|---|---|
+| [index.html](file:///c:/Users/dyuti/OneDrive/Documents/TechWizard%202.0/index.html) | Main HTML page |
+| [style.css](file:///c:/Users/dyuti/OneDrive/Documents/TechWizard%202.0/style.css) | Cyberpunk neon styles |
+| [script.js](file:///c:/Users/dyuti/OneDrive/Documents/TechWizard%202.0/script.js) | All interactivity |
+
+---
+
+## Sections Included
+
+1. **Hero** – Animated TECH WIZARD 2.0 title, live countdown timer to 20 March 2026, event stats, Register Now / Learn More buttons
+2. **About** – Event description with highlight cards + the official poster displayed
+3. **Problem Categories** – 6 animated domain cards (Innovation, Women Safety, Smart Ag, MedTech, Disaster, Education)
+4. **Schedule** – Day-by-day tabbed timeline (Day 0, Day 1, Day 2) with evaluation rounds highlighted
+5. **Prizes** – Podium-style prize cards (₹2,500 / ₹2,000 / ₹1,500) + extras (certificates, goodies)
+6. **Rules** – 9 numbered hackathon rules
+7. **Gallery** – Image grid using all your photos (poster, logos, schedule, problems)
+8. **Registration Form** → redirects to your Google Form
+9. **Contact** – Shubham, Deepak, and official email
+10. **Feedback Form** → redirects to your Google Form
+11. **Footer** – Brand info, links, contact
+
+---
+
+## Screenshots
+
+````carousel
+![Hero Section](file:///C:/Users/dyuti/.gemini/antigravity/brain/0a09f5bb-6b41-4845-a63c-a25e962c492a/hero_section_1772908058550.png)
+<!-- slide -->
+![Countdown & About Section](file:///C:/Users/dyuti/.gemini/antigravity/brain/0a09f5bb-6b41-4845-a63c-a25e962c492a/scroll_600px_1772908067859.png)
+<!-- slide -->
+![About Details & Problem Categories](file:///C:/Users/dyuti/.gemini/antigravity/brain/0a09f5bb-6b41-4845-a63c-a25e962c492a/scroll_1400px_1772908078877.png)
+<!-- slide -->
+![Problem Cards & Schedule](file:///C:/Users/dyuti/.gemini/antigravity/brain/0a09f5bb-6b41-4845-a63c-a25e962c492a/scroll_2200px_1772908088379.png)
+````
+
+---
+
+## ⚠️ Connect Your Google Forms
+
+Open [script.js](file:///c:/Users/dyuti/OneDrive/Documents/TechWizard%202.0/script.js) and replace lines 7–8:
+
+```js
+const GOOGLE_FORM_REG_URL = 'https://forms.gle/YOUR_REGISTRATION_FORM_ID';
+const GOOGLE_FORM_FB_URL  = 'https://forms.gle/YOUR_FEEDBACK_FORM_ID';
+```
+
+Paste in your actual Google Form short links (from **Forms → Send → link icon**).
+
+---
+
+## How to Open Locally
+
+Double-click [index.html](file:///c:/Users/dyuti/OneDrive/Documents/TechWizard%202.0/index.html) — it opens directly in any browser. No server needed.

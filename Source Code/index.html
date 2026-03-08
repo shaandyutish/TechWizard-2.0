@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TechWizard 2.0 | National Hackathon – Haridwar University</title>
+    <meta name="description"
+        content="TechWizard 2.0 – India's premier national hackathon hosted by Haridwar University on 20–21 March 2026. Prize pool of ₹93,000. Register your team now!" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- ===== PARTICLE CANVAS ===== -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- ===== NAV ===== -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="techwizard-logo-DUeFv3V1.jpeg" alt="TechWizard 2.0 Logo" class="nav-logo" />
+                <span class="nav-title">TECHWIZARD 2.0</span>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#problems">Problems</a></li>
+                <li><a href="#schedule">Schedule</a></li>
+                <li><a href="#prizes">Prizes</a></li>
+                <li><a href="#rules">Rules</a></li>
+                <li><a href="#register" class="nav-cta">Register</a></li>
+                <li><a href="#feedback">Feedback</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-logos">
+                <img src="Picture2.png" alt="Haridwar University" class="univ-logo" />
+                <img src="techwizard-logo-DUeFv3V1.jpeg" alt="TechWizard 2.0" class="event-logo" />
+            </div>
+            <p class="hero-subtitle">HARIDWAR UNIVERSITY PRESENTS</p>
+            <h1 class="hero-title">
+                <span class="glitch" data-text="TECH">TECH</span><br />
+                <span class="glitch magenta" data-text="WIZARD 2.0">WIZARD 2.0</span>
+            </h1>
+            <p class="hero-tagline">National Hackathon · 20 &amp; 21 March 2026</p>
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <span class="stat-num">₹93K</span>
+                    <span class="stat-label">Prize Pool</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-num">36+</span>
+                    <span class="stat-label">Hours of Hacking</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-num">6</span>
+                    <span class="stat-label">Problem Domains</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-num">3</span>
+                    <span class="stat-label">Rounds</span>
+                </div>
+            </div>
+            <div class="hero-countdown" id="countdown">
+                <div class="cd-block"><span id="cd-days">00</span><small>Days</small></div>
+                <div class="cd-sep">:</div>
+                <div class="cd-block"><span id="cd-hours">00</span><small>Hours</small></div>
+                <div class="cd-sep">:</div>
+                <div class="cd-block"><span id="cd-mins">00</span><small>Mins</small></div>
+                <div class="cd-sep">:</div>
+                <div class="cd-block"><span id="cd-secs">00</span><small>Secs</small></div>
+            </div>
+            <div class="hero-btns">
+                <a href="#register" class="btn btn-primary">Register Now</a>
+                <a href="#about" class="btn btn-outline">Learn More</a>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <span></span>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">About The Event</span>
+                <h2 class="section-title">What is <span class="highlight">TechWizard 2.0?</span></h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>TechWizard 2.0 is the second edition of Haridwar University's flagship <strong>National
+                            Hackathon</strong>, powered by the Trojan Tech Club and Unstop. Bringing together the
+                        brightest student minds from across India, participants collaborate to solve real-world problems
+                        over an intense 36-hour coding marathon.</p>
+                    <p>Teams of 4–5 members (with at least <strong>1 female member</strong> mandatory) will compete
+                        across 3 rigorous rounds — PPT, Prototype, and Final Presentation — for a combined prize pool of
+                        <strong>₹93,000</strong>.
+                    </p>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <span class="hi-icon">👥</span>
+                            <span>4–5 Members per Team</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="hi-icon">♀️</span>
+                            <span>1 Female Member Mandatory</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="hi-icon">📋</span>
+                            <span>3 Rounds: PPT & Prototype</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="hi-icon">💰</span>
+                            <span>Entry Fee: ₹1,500 per Team</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="hi-icon">📍</span>
+                            <span>Haridwar University, Uttarakhand</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="hi-icon">📅</span>
+                            <span>20 &amp; 21 March 2026</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image-wrap">
+                    <img src="poster.jpeg" alt="TechWizard 2.0 Poster" class="about-poster" />
+                    <div class="poster-glow"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROBLEM CATEGORIES ===== -->
+    <section id="problems" class="section problems-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Challenge Domains</span>
+                <h2 class="section-title">Problem <span class="highlight">Categories</span></h2>
+            </div>
+            <div class="problems-grid">
+                <div class="problem-card" style="--delay:0s">
+                    <div class="problem-icon">💡</div>
+                    <h3>Student Innovation</h3>
+                    <p>Hardware &amp; Software solutions that solve real campus &amp; student life challenges.</p>
+                </div>
+                <div class="problem-card" style="--delay:0.1s">
+                    <div class="problem-icon">🛡️</div>
+                    <h3>Women Safety</h3>
+                    <p>Tech-driven solutions to enhance safety, security and empowerment of women.</p>
+                </div>
+                <div class="problem-card" style="--delay:0.2s">
+                    <div class="problem-icon">🌾</div>
+                    <h3>Smart Agriculture</h3>
+                    <p>Innovative farming technologies for sustainable and precision agriculture.</p>
+                </div>
+                <div class="problem-card" style="--delay:0.3s">
+                    <div class="problem-icon">🏥</div>
+                    <h3>Healthcare &amp; MedTech</h3>
+                    <p>Digitising healthcare for better diagnostics, delivery and patient outcomes.</p>
+                </div>
+                <div class="problem-card" style="--delay:0.4s">
+                    <div class="problem-icon">🌊</div>
+                    <h3>Disaster Management</h3>
+                    <p>Early-warning systems and response tools for natural and man-made disasters.</p>
+                </div>
+                <div class="problem-card" style="--delay:0.5s">
+                    <div class="problem-icon">📚</div>
+                    <h3>Education</h3>
+                    <p>EdTech solutions that democratise learning and bridge the rural-urban gap.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SCHEDULE ===== -->
+    <section id="schedule" class="section schedule-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Event Timeline</span>
+                <h2 class="section-title">Hackathon <span class="highlight">Schedule</span></h2>
+            </div>
+            <div class="schedule-tabs">
+                <button class="tab-btn active" data-tab="day0">Day 0 – 19 Mar</button>
+                <button class="tab-btn" data-tab="day1">Day 1 – 20 Mar</button>
+                <button class="tab-btn" data-tab="day2">Day 2 – 21 Mar</button>
+            </div>
+            <div class="schedule-content" id="schedule-content">
+                <!-- Day 0 -->
+                <div class="tab-panel active" id="day0">
+                    <div class="timeline">
+                        <div class="tl-item">
+                            <div class="tl-time">8:00 PM</div>
+                            <div class="tl-dot"></div>
+                            <div class="tl-desc">Reporting of Teams &amp; Mentors (Until 9:00 AM of 20th March)</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Day 1 -->
+                <div class="tab-panel" id="day1">
+                    <div class="timeline">
+                        <div class="tl-item highlight-row">
+                            <div class="tl-time">8:00–9:00 AM</div>
+                            <div class="tl-dot"></div>
+                            <div class="tl-desc">Breakfast</div>
+                        </div>
+                        <div class="tl-item">
+                            <div class="tl-time">9:15–9:30 AM</div>
+                            <div class="tl-dot"></div>
+                            <div class="tl-desc">Assemble at Venue</div>
+                        </div>
+                        <div class="tl-item highlight-row">
+                            <div class="tl-time">9:30–11:10 AM</div>
+                            <div class="tl-dot"></div>
+                            <div class="tl-desc">🎉 Inauguration of National Hackathon (Tech Wizard 2.0)</div>
+                        </div>
+                        <div class="tl-item">
+                            <div class="tl-time">9:45–10:00 AM</div>
+                            <div class="tl-dot"></div>
+                            <div class="tl-desc">Lamp Lighting</div>
+                        </div>
+                        <div class="tl-item">
+                            <div class="tl-time">10:00–10:05 AM</div>
+                            <div class="tl-dot"></div>
+                            <div class="tl-desc">National Anthem</div>
+                        </div>
+                        <div class="tl-item">
+                            <div class="tl-time">10:05–10:10 AM</div>
+                            <div class="tl-dot"></div>
+                            <div class="tl-desc">Welcoming Address</div>
+                        </div>
+                        <div class="tl-item">
+                            <div class="tl-time">10:10–11:10 AM</div>
+                            <div class="tl-dot"></div>
+                            <div class="tl-desc">Addresses by Honourable Chancellor, Vice Chancellor &amp; Pro Vice
+                                Chancellors</div>
+                        </div>
+                        <div class="tl-item">
+                            <div class="tl-time">11:10–11:20 AM</div>
+                            <div class="tl-dot"></div>
+                            <div class="tl-desc">Hi-Tea</div>
+                        </div>
+                        <div class="tl-item highlight-row">
+                            <div class="tl-time">11:30 AM–1:00 PM</div>
+                            <div class="tl-dot"></div>
+                            <div class="tl-desc">⌨️ Coding Starts!</div>
+                        </div>
+                        <div class="tl-item highlight-row">
+                            <div class="tl-time">1:00–2:00 PM</div>
+                            <div class="tl-dot"></div>
+                            <div class="tl-desc">🔍 1st Round of Evaluation</div>
+                        </div>
+                        <div class="tl-item">
+                            <div class="tl-time">2:00–3:00 PM</div>
+                            <div class="tl-dot"></div>
+                            <div class="tl-desc">Lunch</div>
+                        </div>
+                        <div class="tl-item">
+                            <div class="tl-time">3:00–5:30 PM</div>
+                            <div class="tl-dot"></div>
+                            <div class="tl-desc">Coding Resumes</div>
+                        </div>
+                        <div class="tl-item">
+                            <div class="tl-time">5:30–6:00 PM</div>
+                            <div class="tl-dot"></div>
+                            <div class="tl-desc">Evening Snacks</div>
+                        </div>
+                        <div class="tl-item">
+                            <div class="tl-time">6:00–8:30 PM</div>
+                            <div class="tl-dot"></div>
+                            <div class="tl-desc">Coding Resumes</div>
+                        </div>
+                        <div class="tl-item">
+                            <div class="tl-time">8:30–9:30 PM</div>
+                            <div class="tl-dot"></div>
+                            <div class="tl-desc">Dinner</div>
+                        </div>
+                        <div class="tl-item highlight-row">
+                            <div class="tl-time">9:30–10:30 PM</div>
+                            <div class="tl-dot"></div>
+                            <div class="tl-desc">🔍 2nd Round of Evaluation</div>
+                        </div>
+                        <div class="tl-item">
+                            <div class="tl-time">10:30 PM–12:00 AM</div>
+                            <div class="tl-dot"></div>
+                            <div class="tl-desc">Coding Resumes</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Day 2 -->
+                <div class="tab-panel" id="day2">
+                    <div class="timeline">
+                        <div class="tl-item">
+                            <div class="tl-time">12:00–1:30 AM</div>
+                            <div class="tl-dot"></div>
+                            <div class="tl-desc">Midnight Tea, Snacks &amp; Recreational Activity</div>
+                        </div>
+                        <div class="tl-item">
+                            <div class="tl-time">1:30–5:30 AM</div>
+                            <div class="tl-dot"></div>
+                            <div class="tl-desc">Coding Resumes</div>
+                        </div>
+                        <div class="tl-item">
+                            <div class="tl-time">5:30–8:00 AM</div>
+                            <div class="tl-dot"></div>
+                            <div class="tl-desc">Break</div>
+                        </div>
+                        <div class="tl-item">
+                            <div class="tl-time">8:00–9:00 AM</div>
+                            <div class="tl-dot"></div>
+                            <div class="tl-desc">Breakfast</div>
+                        </div>
+                        <div class="tl-item">
+                            <div class="tl-time">9:00–10:00 AM</div>
+                            <div class="tl-dot"></div>
+                            <div class="tl-desc">Coding Resumes</div>
+                        </div>
+                        <div class="tl-item highlight-row">
+                            <div class="tl-time">10:00 AM–12:00 PM</div>
+                            <div class="tl-dot"></div>
+                            <div class="tl-desc">🏆 Final Round of Evaluation</div>
+                        </div>
+                        <div class="tl-item">
+                            <div class="tl-time">12:00–1:00 PM</div>
+                            <div class="tl-dot"></div>
+                            <div class="tl-desc">Lunch</div>
+                        </div>
+                        <div class="tl-item highlight-row">
+                            <div class="tl-time">2:00–4:00 PM</div>
+                            <div class="tl-dot"></div>
+                            <div class="tl-desc">🎊 Result Declaration</div>
+                        </div>
+                        <div class="tl-item">
+                            <div class="tl-time">4:00–5:00 PM</div>
+                            <div class="tl-dot"></div>
+                            <div class="tl-desc">High Tea &amp; Closing Ceremony</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PRIZES ===== -->
+    <section id="prizes" class="section prizes-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Win Big</span>
+                <h2 class="section-title">Awards &amp; <span class="highlight">Prizes</span></h2>
+            </div>
+            <div class="prizes-grid">
+                <div class="prize-card silver">
+                    <div class="prize-rank">2<sup>nd</sup></div>
+                    <div class="prize-trophy">🥈</div>
+                    <div class="prize-amount">₹31,000</div>
+                    <p>+ Merit Certificate</p>
+                </div>
+                <div class="prize-card gold">
+                    <div class="prize-badge">🏆 GRAND PRIZE</div>
+                    <div class="prize-rank">1<sup>st</sup></div>
+                    <div class="prize-trophy">🥇</div>
+                    <div class="prize-amount">₹51,000</div>
+                    <p>+ Winner Certificate</p>
+                </div>
+                <div class="prize-card bronze">
+                    <div class="prize-rank">3<sup>rd</sup></div>
+                    <div class="prize-trophy">🥉</div>
+                    <div class="prize-amount">₹11,000</div>
+                    <p>+ Merit Certificate</p>
+                </div>
+            </div>
+            <div class="prizes-extra">
+                <div class="extra-card">🎓 Participation Certificates for All Teams</div>
+                <div class="extra-card">🌟 Mentor Appreciation Certificates</div>
+                <div class="extra-card">🎁 Goodies: Notepad, Pen, Cup &amp; Clear Bag</div>
+            </div>
+            <div class="pool-banner">
+                <span>Total Prize Pool</span>
+                <strong>₹93,000</strong>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== RULES ===== -->
+    <section id="rules" class="section rules-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Important</span>
+                <h2 class="section-title">Hackathon <span class="highlight">Rules</span></h2>
+            </div>
+            <div class="rules-grid">
+                <div class="rule-item">
+                    <span class="rule-num">01</span>
+                    <p>Each team must consist of <strong>4–6 members</strong>.</p>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-num">02</span>
+                    <p>All team members must be <strong>registered participants</strong>.</p>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-num">03</span>
+                    <p>All students and mentors must report to the auditorium by <strong>9:00 AM sharp</strong>.</p>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-num">04</span>
+                    <p>A minimum of <strong>2 team members</strong> must be present at the desk at all times.</p>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-num">05</span>
+                    <p>Leaving the premises is permitted only in emergencies with <strong>prior coordinator
+                            approval</strong>.</p>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-num">06</span>
+                    <p>During presentation, a minimum of <strong>2 team members must present</strong> their ideas.</p>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-num">07</span>
+                    <p>Seeking help from students <strong>outside the premises</strong> for project development is
+                        strictly prohibited.</p>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-num">08</span>
+                    <p><strong>GitHub submission</strong> from every team member is mandatory.</p>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-num">09</span>
+                    <p>Mentors must <strong>not write complete code</strong> for any team; violation leads to
+                        disqualification.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== GALLERY ===== -->
+    <section id="gallery" class="section gallery-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Gallery</span>
+                <h2 class="section-title">Event <span class="highlight">Highlights</span></h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item g-large">
+                    <img src="poster.jpeg" alt="TechWizard 2.0 Official Poster" />
+                    <div class="gallery-overlay"><span>Official Poster</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="techwizard-logo-DUeFv3V1.jpeg" alt="TechWizard 2.0 Event Logo" />
+                    <div class="gallery-overlay"><span>Event Logo</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Picture2.png" alt="Haridwar University Logo" />
+                    <div class="gallery-overlay"><span>Haridwar University</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="schedule.jpeg" alt="Event Schedule" />
+                    <div class="gallery-overlay"><span>Schedule</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="problems and rules.jpeg" alt="Problem Categories &amp; Rules" />
+                    <div class="gallery-overlay"><span>Problems &amp; Rules</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== REGISTRATION FORM ===== -->
+    <section id="register" class="section register-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Join the Battle</span>
+                <h2 class="section-title">Team <span class="highlight">Registration</span></h2>
+                <p class="section-desc">Fill in your team details below. On submission you'll be redirected to our
+                    official Google Form to complete payment &amp; confirmation.</p>
+            </div>
+            <div class="form-wrapper">
+                <div class="form-decoration"></div>
+                <form id="registration-form" class="reg-form">
+                    <div class="form-section-title">👥 Team Information</div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="team-name">Team Name <span class="req">*</span></label>
+                            <input type="text" id="team-name" name="team_name" placeholder="e.g. CodeCrusaders"
+                                required />
+                        </div>
+                        <div class="form-group">
+                            <label for="college-name">College / University <span class="req">*</span></label>
+                            <input type="text" id="college-name" name="college_name" placeholder="Your institution name"
+                                required />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="problem-domain">Problem Domain <span class="req">*</span></label>
+                            <select id="problem-domain" name="problem_domain" required>
+                                <option value="" disabled selected>Select a domain</option>
+                                <option>Student Innovation (Hardware/Software)</option>
+                                <option>Women Safety</option>
+                                <option>Smart Agriculture</option>
+                                <option>Healthcare &amp; MedTech</option>
+                                <option>Disaster Management</option>
+                                <option>Education</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="team-size">Team Size <span class="req">*</span></label>
+                            <select id="team-size" name="team_size" required>
+                                <option value="" disabled selected>Number of members</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-section-title">🧑‍💻 Team Leader Details</div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="leader-name">Leader Full Name <span class="req">*</span></label>
+                            <input type="text" id="leader-name" name="leader_name" placeholder="Full name" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="leader-email">Leader Email <span class="req">*</span></label>
+                            <input type="email" id="leader-email" name="leader_email" placeholder="leader@email.com"
+                                required />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="leader-phone">Leader Phone <span class="req">*</span></label>
+                            <input type="tel" id="leader-phone" name="leader_phone" placeholder="+91 XXXXX XXXXX"
+                                required />
+                        </div>
+                        <div class="form-group">
+                            <label for="leader-year">Year of Study <span class="req">*</span></label>
+                            <select id="leader-year" name="leader_year" required>
+                                <option value="" disabled selected>Select year</option>
+                                <option>1st Year</option>
+                                <option>2nd Year</option>
+                                <option>3rd Year</option>
+                                <option>4th Year</option>
+                                <option>Postgraduate</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-section-title">📝 Project Details</div>
+                    <div class="form-group full-width">
+                        <label for="project-title">Project Title <span class="req">*</span></label>
+                        <input type="text" id="project-title" name="project_title"
+                            placeholder="Brief title of your project idea" required />
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="project-desc">Project Description <span class="req">*</span></label>
+                        <textarea id="project-desc" name="project_desc" rows="4"
+                            placeholder="Describe your project idea in 100–200 words..." required></textarea>
+                    </div>
+
+                    <div class="form-group full-width checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="female-confirm" name="female_confirm" required />
+                            <span class="checkmark"></span>
+                            I confirm that our team includes <strong>at least 1 female member</strong> (mandatory)
+                        </label>
+                    </div>
+                    <div class="form-group full-width checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="rules-confirm" name="rules_confirm" required />
+                            <span class="checkmark"></span>
+                            I agree to the hackathon rules and confirm that all team members are registered participants
+                        </label>
+                    </div>
+
+                    <div class="form-submit">
+                        <button type="submit" id="reg-submit-btn" class="btn btn-primary btn-large">
+                            <span>Proceed to Google Form →</span>
+                        </button>
+                        <p class="form-note">You will be redirected to the official Google Form to submit your full team
+                            details and complete payment (₹1,500 per team).</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Get In Touch</span>
+                <h2 class="section-title">Contact &amp; <span class="highlight">Support</span></h2>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">📞</div>
+                    <h3>Shubham Srivastava</h3>
+                    <a href="tel:+916394658895">+91 63946 58895</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">📞</div>
+                    <h3>Deepak Kaushik</h3>
+                    <a href="tel:+917906924141">+91 79069 24141</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">✉️</div>
+                    <h3>Official Email</h3>
+                    <a href="mailto:tech.club.trojan@gmail.com">tech.club.trojan@gmail.com</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FEEDBACK FORM ===== -->
+    <section id="feedback" class="section feedback-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Share Your Experience</span>
+                <h2 class="section-title">Event <span class="highlight">Feedback</span></h2>
+                <p class="section-desc">Your feedback helps us improve future editions. On submission you'll be
+                    redirected to our official feedback Google Form.</p>
+            </div>
+            <div class="form-wrapper feedback-wrap">
+                <form id="feedback-form" class="reg-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fb-name">Your Name <span class="req">*</span></label>
+                            <input type="text" id="fb-name" name="fb_name" placeholder="Full name" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="fb-email">Email Address <span class="req">*</span></label>
+                            <input type="email" id="fb-email" name="fb_email" placeholder="you@email.com" required />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fb-college">College / University</label>
+                            <input type="text" id="fb-college" name="fb_college" placeholder="Your institution" />
+                        </div>
+                        <div class="form-group">
+                            <label for="fb-role">Your Role <span class="req">*</span></label>
+                            <select id="fb-role" name="fb_role" required>
+                                <option value="" disabled selected>Select role</option>
+                                <option>Participant</option>
+                                <option>Mentor</option>
+                                <option>Judge</option>
+                                <option>Organiser</option>
+                                <option>Visitor</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label>Overall Experience <span class="req">*</span></label>
+                        <div class="star-rating" id="star-rating">
+                            <span class="star" data-val="1">★</span>
+                            <span class="star" data-val="2">★</span>
+                            <span class="star" data-val="3">★</span>
+                            <span class="star" data-val="4">★</span>
+                            <span class="star" data-val="5">★</span>
+                        </div>
+                        <input type="hidden" id="fb-rating" name="fb_rating" required />
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="fb-best">What did you like the most?</label>
+                        <textarea id="fb-best" name="fb_best" rows="3"
+                            placeholder="Tell us what we did well..."></textarea>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="fb-improve">What can we improve? <span class="req">*</span></label>
+                        <textarea id="fb-improve" name="fb_improve" rows="3" placeholder="Your honest suggestions..."
+                            required></textarea>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="fb-recommend">Would you recommend TechWizard to others? <span
+                                class="req">*</span></label>
+                        <select id="fb-recommend" name="fb_recommend" required>
+                            <option value="" disabled selected>Select</option>
+                            <option>Definitely Yes</option>
+                            <option>Probably Yes</option>
+                            <option>Not Sure</option>
+                            <option>Probably No</option>
+                            <option>Definitely No</option>
+                        </select>
+                    </div>
+
+                    <div class="form-submit">
+                        <button type="submit" id="fb-submit-btn" class="btn btn-primary btn-large">
+                            <span>Submit Feedback →</span>
+                        </button>
+                        <p class="form-note">You'll be redirected to our official Google Form to complete your feedback
+                            submission.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="techwizard-logo-DUeFv3V1.jpeg" alt="TechWizard 2.0" class="footer-logo" />
+                    <div>
+                        <h3>TechWizard 2.0</h3>
+                        <p>National Hackathon – Haridwar University</p>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#problems">Problems</a></li>
+                        <li><a href="#schedule">Schedule</a></li>
+                        <li><a href="#prizes">Prizes</a></li>
+                        <li><a href="#register">Register</a></li>
+                        <li><a href="#feedback">Feedback</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p>Shubham: <a href="tel:+916394658895">+91 63946 58895</a></p>
+                    <p>Deepak: <a href="tel:+917906924141">+91 79069 24141</a></p>
+                    <p><a href="mailto:tech.club.trojan@gmail.com">tech.club.trojan@gmail.com</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Powered by <strong>Trojan Tech Club</strong> &amp; <strong>Unstop</strong> · Haridwar University
+                    &copy; 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== MODAL (redirect notice) ===== -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-icon">🚀</div>
+            <h3 id="modal-title">Redirecting to Google Form</h3>
+            <p id="modal-desc">You're being redirected to the official Google Form. Please complete all fields there to
+                finalise your registration.</p>
+            <div class="modal-btns">
+                <a href="#" id="modal-proceed-btn" class="btn btn-primary" target="_blank" rel="noopener">Proceed to
+                    Google Form</a>
+                <button class="btn btn-outline" id="modal-cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
