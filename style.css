@@ -434,13 +434,13 @@ body {
 .glitch {
   display: inline-block;
   color: var(--neon-cyan);
-  text-shadow: 0 0 20px var(--neon-cyan), 0 0 40px var(--neon-cyan);
+  text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
   animation: glitchAnim 4s infinite;
 }
 
 .glitch.magenta {
   color: var(--neon-pink);
-  text-shadow: 0 0 20px var(--neon-pink), 0 0 40px var(--neon-purple);
+  text-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-purple);
 }
 
 @keyframes glitchAnim {
