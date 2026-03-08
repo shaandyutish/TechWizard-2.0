@@ -326,6 +326,34 @@ body {
   transition: all 0.3s;
 }
 
+/* ===== SECTION DIVIDER ===== */
+.section-divider {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  margin-top: -50px;
+  background: transparent;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.section-divider::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 0, 38, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 2px solid var(--neon-cyan);
+  border-radius: 100% 100% 0 0 / 100% 100% 0 0;
+  transform: scaleX(1.1);
+  box-shadow: 0 -10px 30px rgba(0, 245, 255, 0.2);
+}
+
+
 /* ===== ABOUT HARIDWAR UNIVERSITY ===== */
 
 .hu-section {
@@ -369,46 +397,8 @@ body {
   align-items: center;
   justify-content: center;
   /*background: var(--gradient-hero);*/
-  overflow: visible;
-  z-index: 1;
-}
-
-/* ===== SECTION DIVIDER ===== */
-.section-divider {
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 100%;
   overflow: hidden;
-  line-height: 0;
-  z-index: 10;
-}
-
-.section-divider svg {
-  position: relative;
-  display: block;
-  width: calc(100% + 1.3px);
-  height: 80px;
-}
-
-.section-divider .shape-fill {
-  fill: #050510;
-}
-
-/* Blurred glow effect on the curve */
-.section-divider::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  box-shadow: 0 -15px 30px rgba(0, 242, 255, 0.15);
-  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-  filter: blur(10px);
-  z-index: -1;
-  pointer-events: none;
+  z-index: 1;
 }
 
 .hero-overlay {
