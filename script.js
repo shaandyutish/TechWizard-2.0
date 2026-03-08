@@ -103,6 +103,23 @@ navLinks.querySelectorAll('a').forEach(a => {
     setInterval(tick, 1000);
 })();
 
+/* ===== FAQ ACCORDION ===== */
+document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => {
+        const item = q.parentElement;
+        const isActive = item.classList.contains('active');
+
+        // Close all other items
+        document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
+
+        // Toggle current item
+        if (!isActive) {
+            item.classList.add('active');
+        }
+    });
+});
+
+
 /* ===== SCHEDULE TABS ===== */
 document.querySelectorAll('.tab-btn').forEach(btn => {
     btn.addEventListener('click', () => {
