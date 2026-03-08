@@ -52,8 +52,9 @@ while ($true) {
         $pushOut = git push origin main 2>&1
         
         if ($LASTEXITCODE -eq 0) {
-            Write-Host "[$timestamp] Successfully synced to GitHub. ✓" -ForegroundColor Green
-        } else {
+            Write-Host "[$timestamp] Successfully synced to GitHub." -ForegroundColor Green
+        }
+        else {
             Write-Host "[$timestamp] Sync failed! Ensure you are connected to the internet and GitHub is set up." -ForegroundColor Red
             Write-Host $pushOut -ForegroundColor DarkGray
         }
