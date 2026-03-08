@@ -1654,12 +1654,24 @@ body {
   object-fit: contain;
   opacity: 0.7;
   transition: all 0.3s ease;
-  filter: grayscale(100%);
 }
 
 .sponsor-img:hover {
   opacity: 1;
   filter: grayscale(0%) drop-shadow(0 0 10px rgba(0, 255, 255, 0.4));
+  transform: translateY(-2px);
+}
+
+.sponsor-img1 {
+  height: 40px;
+  object-fit: contain;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.sponsor-img1:hover {
+  opacity: 1;
+  filter: grayscale(0%) drop-shadow(0 0 10px rgb(255, 255, 255));
   transform: translateY(-2px);
 }
 
