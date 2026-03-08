@@ -80,7 +80,7 @@ navLinks.querySelectorAll('a').forEach(a => {
 
 /* ===== COUNTDOWN ===== */
 (function () {
-    const target = new Date('2026-03-20T09:00:00+05:30').getTime();
+    const target = new Date('2026-03-22T23:59:00+05:30').getTime();
 
     function pad(n) { return String(n).padStart(2, '0'); }
 
