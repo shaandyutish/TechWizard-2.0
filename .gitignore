@@ -21,3 +21,7 @@ yarn-error.log*
 
 # Auto-sync script
 # auto-sync.ps1
+
+# Ignore specific project folders
+Resources/
+Source Code/
