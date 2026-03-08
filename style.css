@@ -361,39 +361,6 @@ body {
   color: #00f2ff;
 }
 
-/* ===== BLUR SECTION DIVIDER ===== */
-.blur-divider {
-  position: relative;
-  width: 100%;
-  height: 180px;
-  margin-top: -90px;
-  background: linear-gradient(to bottom,
-      transparent 0%,
-      rgba(5, 5, 16, 0.3) 25%,
-      rgba(5, 5, 16, 0.7) 60%,
-      var(--dark-bg) 100%);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  z-index: 10;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.blur-divider::before {
-  content: '';
-  position: absolute;
-  top: -100px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 140%;
-  height: 200px;
-  background: var(--dark-bg);
-  border-radius: 50%;
-  filter: blur(50px);
-  opacity: 0.8;
-}
-
-
 /* ===== HERO ===== */
 .hero {
   position: relative;
@@ -413,6 +380,18 @@ body {
     radial-gradient(ellipse at 80% 20%, rgba(255, 45, 120, 0.15) 0%, transparent 50%),
     radial-gradient(ellipse at 20% 80%, rgba(0, 245, 255, 0.1) 0%, transparent 50%);
 }
+
+.hero-bottom-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(to bottom, transparent, var(--dark-bg));
+  pointer-events: none;
+  z-index: 10;
+}
+
 
 .hero-content {
   position: relative;
