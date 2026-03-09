@@ -1026,7 +1026,7 @@ body {
 .tl-item.highlight-row .tl-dot {
   background: var(--neon-pink);
   border-color: #fff;
-  box-shadow: 0 0 20px var(--neon-pink);
+  box-shadow: 0 0 50px var(--neon-pink);
 }
 
 
