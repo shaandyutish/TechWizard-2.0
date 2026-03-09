@@ -627,6 +627,28 @@ body {
   align-items: center;
 }
 
+.about-grid.reverse {
+  grid-template-columns: 420px 1fr;
+}
+
+.about-grid.reverse .about-image-wrap {
+  order: 1;
+}
+
+.about-grid.reverse .about-text {
+  order: 2;
+}
+
+@media (max-width: 1024px) {
+  .about-grid.reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .about-grid.reverse .about-image-wrap {
+    order: 2;
+  }
+}
+
 .about-text p {
   color: #fff;
   font-size: 1.05rem;
@@ -1313,7 +1335,7 @@ body {
 
 .footer-brand-logo:hover {
   transform: scale(1.05) rotate(5deg);
-  filter: drop-shadow(0 0 10px var(--neon-cyan));
+  filter: drop-shadow(0 0 10px rgb(255, 255, 255));
 }
 
 .club-logo-circle {
