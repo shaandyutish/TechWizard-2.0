@@ -968,7 +968,7 @@ body {
 .prize-rank {
   font-family: 'Orbitron', monospace;
   font-size: 1.2rem;
-  color: var(--text-secondary);
+  color: #fff;
   margin-bottom: 4px;
 }
 
@@ -1114,7 +1114,7 @@ body {
 }
 
 .rule-item p {
-  color: var(--text-secondary);
+  color: #fff;
   font-size: 0.95rem;
   line-height: 1.6;
 }
