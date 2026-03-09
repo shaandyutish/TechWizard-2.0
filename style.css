@@ -1131,6 +1131,30 @@ body {
   font-size: 0.85rem;
 }
 
+.prize-membership {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.prize-membership span {
+  display: block;
+  font-family: 'Orbitron', monospace;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--neon-cyan);
+  line-height: 1.2;
+}
+
+.prize-membership small {
+  display: block;
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+
 .prizes-extra {
   display: flex;
   justify-content: center;
