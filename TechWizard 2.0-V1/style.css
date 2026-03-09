@@ -1015,7 +1015,7 @@ body {
 .tl-item.highlight-row {
   background: rgba(180, 79, 255, 0.05);
   border-radius: 12px;
-  margin: 100px 0;
+  margin: 10px 0;
 }
 
 .tl-item.highlight-row .tl-desc {
