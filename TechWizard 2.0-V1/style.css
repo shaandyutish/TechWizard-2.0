@@ -941,7 +941,7 @@ body {
 .timeline::before {
   content: '';
   position: absolute;
-  left: 140px;
+  left: 130px;
   top: 0;
   bottom: 0;
   width: 2px;
