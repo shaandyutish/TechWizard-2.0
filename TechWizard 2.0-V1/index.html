@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TechWizard 2.0 | National Hackathon – Haridwar University</title>
+    <meta name="description"
+        content="TechWizard 2.0 – India's premier national hackathon hosted by Haridwar University on 20–21 March 2026. Prize pool of ₹93,000. Register your team now!" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="icon" type="image/jpeg" href="https://i.postimg.cc/4dKyYx45/techwizard_logo_DUe_Fv3V1.png" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <canvas id="particles-canvas"></canvas>
+
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a class="nav-brand" href="https://huroorkee.ac.in/">
+                    <div class="nav-org-branding">
+                        <img src="https://i.postimg.cc/h4zQjphH/HU.png" alt="Haridwar University Logo"
+                            class="nav-hu-logo" />
+                        <div class="nav-hu-text">
+                            <span class="hu-name">Haridwar University</span>
+                            <span class="hu-presents">PRESENTS</span>
+                        </div>
+                    </div>
+                </a>
+                <a class="nav-brand" href="index.html">
+                    <div class="nav-event-branding">
+                        <img src="https://i.postimg.cc/4dKyYx45/techwizard_logo_DUe_Fv3V1.png" alt="TechWizard 2.0 Logo"
+                            class="nav-logo" />
+                        <span class="nav-title">TECHWIZARD 2.0</span>
+                    </div>
+                </a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="problems.html">Problems</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="prizes.html">Prizes</a></li>
+                <li><a href="rules.html">Rules</a></li>
+                <li><a href="register.html" class="nav-cta">Register</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="glitch" data-text="TECH">TECH</span><br />
+                <span class="glitch magenta" data-text="WIZARD 2.0">WIZARD 2.0</span>
+            </h1>
+            <p class="hero-tagline">National Hackathon · 26 &amp; 27 March 2026</p>
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <span class="stat-num">₹93K</span>
+                    <span class="stat-label">Prize Pool</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-num">30</span>
+                    <span class="stat-label">Hours of Hacking</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-num">6</span>
+                    <span class="stat-label">Problem Domains</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-num">3</span>
+                    <span class="stat-label">Rounds</span>
+                </div>
+            </div>
+            <div class="hero-countdown" id="countdown">
+                <div class="cd-block"><span id="cd-days">00</span><small>Days</small></div>
+                <div class="cd-sep">:</div>
+                <div class="cd-block"><span id="cd-hours">00</span><small>Hours</small></div>
+                <div class="cd-sep">:</div>
+                <div class="cd-block"><span id="cd-mins">00</span><small>Mins</small></div>
+                <div class="cd-sep">:</div>
+                <div class="cd-block"><span id="cd-secs">00</span><small>Secs</small></div>
+            </div>
+            <div class="hero-btns">
+                <a href="register.html" class="btn btn-primary">Register Now</a>
+                <a href="about.html" class="btn btn-outline">Learn More</a>
+            </div>
+
+            <!-- SPONSORS SECTON -->
+            <div class="hero-sponsors">
+                <p>ORGANIZED BY</p>
+                <div class="sponsors-logos">
+                    <img src="assets/trojan-club-logo.jpeg" alt="Trojan Tech Club" class="sponsor-img"
+                        style="border-radius: 50%; height: 60px;" />
+                    <img src="https://i.postimg.cc/h4zQjphH/HU.png" alt="Haridwar University" class="sponsor-img"
+                        style="height: 65px;" />
+                </div>
+                <p style="margin-top: 30px;">POWERED & SPONSORED BY</p>
+                <div class="sponsors-logos">
+                    <img src="https://i.postimg.cc/v8WL7k1z/unstop-logo1.png" alt="Unstop" class="sponsor-img1" />
+                    <img src="https://i.postimg.cc/3rcWQpBm/Code_Crafters_io_full_logo_(White_text).png"
+                        alt="CodeCrafters" class="sponsor-img1" />
+                </div>
+            </div>
+        </div>
+        <div class="hero-bottom-fade"></div>
+    </section>
+
+    <!-- ABOUT HARIDWAR UNIVERSITY -->
+    <section class="section hu-section">
+        <div class="container">
+            <h2 class="section-title">About Haridwar University</h2>
+            <div class="hu-grid">
+                <div class="hu-text">
+                    <br>
+                    <p>
+                        Haridwar University is a leading institution in Uttarakhand dedicated to
+                        innovation, research, and academic excellence. The university provides
+                        state-of-the-art infrastructure, experienced faculty, and an environment
+                        that encourages creativity and entrepreneurship among students.
+                    </p>
+                    <p>
+                        The university hosts several technical events and national competitions to
+                        promote innovation and collaboration among students from across India.
+                        TechWizard 2.0 is one such initiative aimed at bringing together talented
+                        developers, designers, and innovators to solve real-world challenges.
+                    </p>
+                    <p>
+                        Located in the spiritual city of Haridwar, the campus provides a perfect
+                        blend of modern education and cultural heritage, making it an ideal place
+                        for learning and innovation.
+                    </p>
+                </div>
+                <div class="hu-image">
+                    <img src="https://i.postimg.cc/h4zQjphH/HU.png" alt="Haridwar University">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="section faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">1. What is TECHWIZARD 2.0?</div>
+                    <div class="faq-answer">
+                        <p>TECHWIZARD 2.0 is a national-level hackathon where students collaborate to build innovative
+                            technology solutions within a limited time. Participants work on real-world problems, learn
+                            new technologies, and compete for exciting prizes.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">2. How can I reach the hackathon venue?</div>
+                    <div class="faq-answer">
+                        <p>The hackathon will be held at Haridwar University, Uttarakhand. Participants can reach the
+                            venue by train, bus, or personal transport. Detailed location and directions will be shared
+                            with registered teams before the event.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">3. Who can participate?</div>
+                    <div class="faq-answer">
+                        <p>Students from any recognized college or university who are interested in technology,
+                            development, and innovation can participate in the hackathon.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">4. How much is the registration fee?</div>
+                    <div class="faq-answer">
+                        <p>Registration for the hackathon is not free. Selected teams will be able to participate
+                            without
+                            any participation fee.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">5. What’s the team size requirement?</div>
+                    <div class="faq-answer">
+                        <p>Each team must have a minimum of 4 members and a maximum of 5 members(1 female member). Solo
+                            participation is not allowed.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">6. What are the problem statements?</div>
+                    <div class="faq-answer">
+                        <p>Problem statements will be based on domains like Artificial Intelligence, Web Development,
+                            Cybersecurity, Healthcare Technology, Smart Cities, and Sustainability. Detailed themes will
+                            be announced before the hackathon.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">7. What are the prizes?</div>
+                    <div class="faq-answer">
+                        <p>The total prize pool is ₹93,000. Winners will receive cash prizes, certificates, and special
+                            recognition for their innovative solutions.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">8. What’s included in the event?</div>
+                    <div class="faq-answer">
+                        <p>Participants will get access to mentorship, networking opportunities, certificates, exciting
+                            challenges, and a chance to win prizes. Meals and basic facilities will also be provided
+                            during the event.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">9. How do I register?</div>
+                    <div class="faq-answer">
+                        <p>You can register through the official registration form available on the website. Simply
+                            click the “Register Now” button and fill in your team details.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">10. Is there a code of conduct?</div>
+                    <div class="faq-answer">
+                        <p>Yes. All participants are expected to maintain professionalism, respect fellow participants,
+                            and follow the hackathon rules. Any form of misconduct or plagiarism may lead to
+                            disqualification.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">11. Where can I get updates?</div>
+                    <div class="faq-answer">
+                        <p>All updates regarding the hackathon will be shared through the official website, email
+                            notifications, and social media channels of the event.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">12. Whom can I contact for queries?</div>
+                    <div class="faq-answer">
+                        <p>For any queries, you can contact the organizing team via email at
+                            tech.club.trojan@gmail.com or call the coordinators listed on the website.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="https://i.postimg.cc/4dKyYx45/techwizard_logo_DUe_Fv3V1.png" alt="TechWizard 2.0"
+                        class="footer-logo" />
+                    <div>
+                        <h3>TechWizard 2.0</h3>
+                        <p>National Hackathon – Haridwar University</p>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="problems.html">Problems</a></li>
+                        <li><a href="schedule.html">Schedule</a></li>
+                        <li><a href="prizes.html">Prizes</a></li>
+                        <li><a href="register.html">Register</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-phone h-5 w-5 text-[#61b239]">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                            </path>
+                        </svg> Shubham: <a href="tel:+916394658895">+91 63946 58895</a></p>
+                    <p><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-phone h-5 w-5 text-[#61b239]">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                            </path>
+                        </svg> Deepak: <a href="tel:+917906924141">+91 79069 24141</a></p>
+                    <p>✉ <a href="mailto:tech.club.trojan@gmail.com">tech.club.trojan@gmail.com</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Organized by <strong>Trojan Tech Club</strong> · Haridwar University &copy; 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
