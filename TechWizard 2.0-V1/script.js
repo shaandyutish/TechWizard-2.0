@@ -60,27 +60,39 @@ const GOOGLE_FORM_FB_URL = 'https://forms.gle/YOUR_FEEDBACK_FORM_ID';
 
 /* ===== NAVBAR SCROLL ===== */
 const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
-});
+if (navbar) {
+    window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+}
 
 /* ===== HAMBURGER ===== */
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('nav-links');
-hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-    hamburger.classList.toggle('open');
-});
-navLinks.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        hamburger.classList.remove('open');
+if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+        hamburger.classList.toggle('open');
     });
-});
+
+    navLinks.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+            navLinks.classList.remove('open');
+            hamburger.classList.remove('open');
+        });
+    });
+}
 
 /* ===== COUNTDOWN ===== */
 (function () {
+    const countdownEl = document.getElementById('countdown');
+    if (!countdownEl) return;
+
     const target = new Date('2026-03-22T23:59:00+05:30').getTime();
+    const daysEl = document.getElementById('cd-days');
+    const hoursEl = document.getElementById('cd-hours');
+    const minsEl = document.getElementById('cd-mins');
+    const secsEl = document.getElementById('cd-secs');
 
     function pad(n) { return String(n).padStart(2, '0'); }
 
@@ -97,19 +109,22 @@ navLinks.querySelectorAll('a').forEach(a => {
     function tick() {
         const now = Date.now();
         const diff = target - now;
+        
         if (diff <= 0) {
-            document.getElementById('cd-days').textContent = '00';
-            document.getElementById('cd-hours').textContent = '00';
-            document.getElementById('cd-mins').textContent = '00';
-            document.getElementById('cd-secs').textContent = '00';
+            if (daysEl) daysEl.textContent = '00';
+            if (hoursEl) hoursEl.textContent = '00';
+            if (minsEl) minsEl.textContent = '00';
+            if (secsEl) secsEl.textContent = '00';
             registrationOver();
             return;
         }
-        document.getElementById('cd-days').textContent = pad(Math.floor(diff / 86400000));
-        document.getElementById('cd-hours').textContent = pad(Math.floor((diff % 86400000) / 3600000));
-        document.getElementById('cd-mins').textContent = pad(Math.floor((diff % 3600000) / 60000));
-        document.getElementById('cd-secs').textContent = pad(Math.floor((diff % 60000) / 1000));
+        
+        if (daysEl) daysEl.textContent = pad(Math.floor(diff / 86400000));
+        if (hoursEl) hoursEl.textContent = pad(Math.floor((diff % 86400000) / 3600000));
+        if (minsEl) minsEl.textContent = pad(Math.floor((diff % 3600000) / 60000));
+        if (secsEl) secsEl.textContent = pad(Math.floor((diff % 60000) / 1000));
     }
+    
     tick();
     setInterval(tick, 1000);
 })();
@@ -118,6 +133,8 @@ navLinks.querySelectorAll('a').forEach(a => {
 document.querySelectorAll('.faq-question').forEach(q => {
     q.addEventListener('click', () => {
         const item = q.parentElement;
+        if (!item) return;
+        
         const isActive = item.classList.contains('active');
 
         // Close all other items
@@ -134,32 +151,44 @@ document.querySelectorAll('.faq-question').forEach(q => {
 /* ===== SCHEDULE TABS ===== */
 document.querySelectorAll('.tab-btn').forEach(btn => {
     btn.addEventListener('click', () => {
+        const tabId = btn.dataset.tab;
+        const targetPanel = document.getElementById(tabId);
+        
+        if (!targetPanel) return;
+
         document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
         document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        
         btn.classList.add('active');
-        document.getElementById(btn.dataset.tab).classList.add('active');
+        targetPanel.classList.add('active');
     });
 });
 
 /* ===== STAR RATING ===== */
 const stars = document.querySelectorAll('.star');
 const ratingInput = document.getElementById('fb-rating');
+const starRatingContainer = document.getElementById('star-rating');
 
-stars.forEach(star => {
-    star.addEventListener('mouseenter', () => {
-        const val = +star.dataset.val;
-        stars.forEach(s => s.classList.toggle('active', +s.dataset.val <= val));
+if (stars.length > 0 && ratingInput) {
+    stars.forEach(star => {
+        star.addEventListener('mouseenter', () => {
+            const val = +star.dataset.val;
+            stars.forEach(s => s.classList.toggle('active', +s.dataset.val <= val));
+        });
+        star.addEventListener('click', () => {
+            const val = +star.dataset.val;
+            ratingInput.value = val;
+            stars.forEach(s => s.classList.toggle('active', +s.dataset.val <= val));
+        });
     });
-    star.addEventListener('click', () => {
-        const val = +star.dataset.val;
-        ratingInput.value = val;
-        stars.forEach(s => s.classList.toggle('active', +s.dataset.val <= val));
-    });
-});
-document.getElementById('star-rating').addEventListener('mouseleave', () => {
-    const saved = +ratingInput.value;
-    stars.forEach(s => s.classList.toggle('active', +s.dataset.val <= saved));
-});
+    
+    if (starRatingContainer) {
+        starRatingContainer.addEventListener('mouseleave', () => {
+            const saved = +ratingInput.value;
+            stars.forEach(s => s.classList.toggle('active', +s.dataset.val <= saved));
+        });
+    }
+}
 
 /* ===== MODAL HELPER ===== */
 const modalOverlay = document.getElementById('modal-overlay');
@@ -169,6 +198,8 @@ const modalProceed = document.getElementById('modal-proceed-btn');
 const modalCancel = document.getElementById('modal-cancel');
 
 function openModal(title, desc, url) {
+    if (!modalOverlay || !modalTitle || !modalDesc || !modalProceed) return;
+    
     modalTitle.textContent = title;
     modalDesc.textContent = desc;
     modalProceed.href = url;
@@ -176,40 +207,51 @@ function openModal(title, desc, url) {
     document.body.style.overflow = 'hidden';
 }
 
-modalCancel.addEventListener('click', closeModal);
-modalOverlay.addEventListener('click', e => { if (e.target === modalOverlay) closeModal(); });
+if (modalCancel) {
+    modalCancel.addEventListener('click', closeModal);
+}
+if (modalOverlay) {
+    modalOverlay.addEventListener('click', e => { if (e.target === modalOverlay) closeModal(); });
+}
+
 function closeModal() {
-    modalOverlay.classList.remove('open');
+    if (modalOverlay) modalOverlay.classList.remove('open');
     document.body.style.overflow = '';
 }
 
 /* ===== REGISTRATION FORM ===== */
-document.getElementById('registration-form').addEventListener('submit', function (e) {
-    e.preventDefault();
-    if (!this.checkValidity()) { this.reportValidity(); return; }
+const registrationForm = document.getElementById('registration-form');
+if (registrationForm) {
+    registrationForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (!this.checkValidity()) { this.reportValidity(); return; }
 
-    openModal(
-        '🚀 Proceed to Registration Form',
-        'You\'re being redirected to the official Google Form to complete your team registration and payment. Entry fee: ₹1,500 per team.',
-        GOOGLE_FORM_REG_URL
-    );
-});
+        openModal(
+            '🚀 Proceed to Registration Form',
+            'You\'re being redirected to the official Google Form to complete your team registration and payment. Entry fee: ₹1,500 per team.',
+            GOOGLE_FORM_REG_URL
+        );
+    });
+}
 
 /* ===== FEEDBACK FORM ===== */
-document.getElementById('feedback-form').addEventListener('submit', function (e) {
-    e.preventDefault();
-    if (!ratingInput.value) {
-        alert('Please select a star rating before submitting.');
-        return;
-    }
-    if (!this.checkValidity()) { this.reportValidity(); return; }
+const feedbackForm = document.getElementById('feedback-form');
+if (feedbackForm) {
+    feedbackForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (!ratingInput.value) {
+            alert('Please select a star rating before submitting.');
+            return;
+        }
+        if (!this.checkValidity()) { this.reportValidity(); return; }
 
-    openModal(
-        '📝 Proceed to Feedback Form',
-        'Thank you for your feedback! You\'re being redirected to the official Google Form to complete and submit your response.',
-        GOOGLE_FORM_FB_URL
-    );
-});
+        openModal(
+            '📝 Proceed to Feedback Form',
+            'Thank you for your feedback! You\'re being redirected to the official Google Form to complete and submit your response.',
+            GOOGLE_FORM_FB_URL
+        );
+    });
+}
 
 /* ===== INTERSECTION OBSERVER – fade in sections ===== */
 const observer = new IntersectionObserver((entries) => {
@@ -228,3 +270,4 @@ document.querySelectorAll('.problem-card, .rule-item, .prize-card, .contact-card
     el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
     observer.observe(el);
 });
+
