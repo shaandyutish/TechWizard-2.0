@@ -1425,6 +1425,26 @@ body {
   padding-top: 15px;
 }
 
+.faq-answer7 {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+  padding: 0 20px;
+}
+
+.faq-item.active .faq-answer7 {
+  max-height: 800px;
+  padding: 0 24px 24px;
+  border-top: 1px solid rgba(180, 79, 255, 0.1);
+}
+
+.faq-answer7 p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 1rem;
+  padding-top: 15px;
+}
+
 /* ===== FOOTER ===== */
 .footer {
   background: #020210;
