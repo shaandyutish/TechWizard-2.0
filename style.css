@@ -1629,20 +1629,22 @@ body {
 .swiper-slide {
   position: relative;
   overflow: hidden;
-  height: 450px;
+  height: 630px !important;
+  min-height: 630px !important;
   background: #000;
 }
 
 .zoom-image {
-  width: 100%;
-  height: 100%;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 450px !important;
   overflow: hidden;
 }
 
 .zoom-image img {
   width: 100% !important;
   height: 100% !important;
-  object-fit: fill !important;
+  object-fit: cover !important;
   display: block;
   transition: transform 6s linear;
   transform: scale(1);
