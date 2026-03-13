@@ -770,6 +770,10 @@ body {
   z-index: 0;
 }
 
+.trojan-logo {
+  max-width: 250px;
+}
+
 /* ===== PROBLEMS ===== */
 .problems-section {
   background: linear-gradient(180deg, var(--dark-bg) 0%, transparent 100%);
@@ -1785,6 +1789,10 @@ body {
 @media (max-width: 768px) {
   .about-btn-wrap {
     text-align: center;
+  }
+
+  .trojan-logo {
+    max-width: 100px;
   }
 
   .btn-large {
