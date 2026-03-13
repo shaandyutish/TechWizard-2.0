@@ -7,6 +7,40 @@
 const GOOGLE_FORM_REG_URL = 'https://forms.gle/rr1Cec1S5cX1nsrG7';
 const GOOGLE_FORM_FB_URL = 'https://forms.gle/YOUR_FEEDBACK_FORM_ID';
 
+/* ===== FEEDBACK PAGE SECURITY CHECK ===== */
+(function() {
+    // Reveal date: 27th March 2026, 00:00:00 IST
+    const showFeedbackDate = new Date('2026-03-27T00:00:00+05:30').getTime();
+    const now = new Date().getTime();
+    
+    // Allow admin bypass via URL parameter "?admin=true"
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('admin') === 'true') {
+        sessionStorage.setItem('tw_admin_access', 'true');
+    }
+    const isAdmin = sessionStorage.getItem('tw_admin_access') === 'true';
+
+    const isAuthorized = (now >= showFeedbackDate) || isAdmin;
+
+    if (!isAuthorized) {
+        // Hide feedback links when DOM builds
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('a[href*="feedback.html"]').forEach(link => {
+                if (link.parentElement && link.parentElement.tagName === 'LI') {
+                    link.parentElement.style.display = 'none';
+                } else {
+                    link.style.display = 'none';
+                }
+            });
+        });
+
+        // Eject if someone forces the URL
+        if (window.location.pathname.endsWith('feedback.html')) {
+            window.location.replace('index.html');
+        }
+    }
+})();
+
 /* ===== PARTICLES ===== */
 (function () {
     const canvas = document.getElementById('particles-canvas');

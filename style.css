@@ -1787,6 +1787,18 @@ body {
     text-align: center;
   }
 
+  .btn-large {
+    padding: 14px 24px;
+    font-size: 0.95rem;
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+  }
+
+  .section-header {
+    margin-bottom: 40px;
+  }
+
   .hamburger {
     display: flex;
   }
@@ -1829,9 +1841,18 @@ body {
 
   .problems-grid,
   .rules-grid,
-  .footer-top {
+  .footer-top,
+  .info-grid {
     grid-template-columns: 1fr;
     gap: 24px;
+  }
+
+  .info-card {
+    padding: 24px 20px;
+  }
+
+  .form-submit {
+    margin: 40px 0 !important;
   }
 
   .about-grid {
