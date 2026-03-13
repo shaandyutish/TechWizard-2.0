@@ -2191,3 +2191,118 @@ body {
     align-items: center;
   }
 }
+
+/* ===== SPONSOR PERK BANNER ===== */
+.sponsor-perk-banner {
+  margin: 48px 0 0;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(0, 245, 255, 0.07), rgba(180, 79, 255, 0.07));
+  border: 1px solid rgba(0, 245, 255, 0.2);
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+  position: relative;
+}
+
+.sponsor-perk-banner::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(0, 245, 255, 0.15), transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.sponsor-perk-inner {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  padding: 32px 36px;
+}
+
+.sponsor-perk-logo {
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sponsor-perk-title {
+  font-family: 'Orbitron', monospace;
+  font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.sponsor-perk-desc {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+.sponsor-perk-details {
+  display: flex;
+  gap: 24px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.perk-detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.perk-label {
+  font-family: 'Orbitron', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  color: var(--neon-pink);
+  text-transform: uppercase;
+}
+
+.perk-code {
+  font-family: 'Orbitron', monospace;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--neon-cyan);
+  letter-spacing: 4px;
+  text-shadow: 0 0 16px rgba(0, 245, 255, 0.5);
+}
+
+.perk-value {
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .sponsor-perk-inner {
+    flex-direction: column;
+    padding: 24px 20px;
+    gap: 18px;
+  }
+
+  .sponsor-perk-logo {
+    align-self: flex-start;
+  }
+
+  .sponsor-perk-title {
+    font-size: 0.95rem;
+  }
+
+  .sponsor-perk-desc {
+    font-size: 0.88rem;
+  }
+
+  .perk-code {
+    font-size: 1.1rem;
+  }
+}
