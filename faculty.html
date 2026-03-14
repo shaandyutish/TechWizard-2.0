@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team | Tech Wizard 2.0</title>
+    <meta name="description" content="Meet the student team behind Tech Wizard 2.0 at Haridwar University." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="icon" type="image/png" href="assets/logo/techwizard-logo-DUeFv3V1.png" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+<body>
+    <div class="announcement-bar">
+        <div class="marquee-wrapper">
+            <span>🚩 Important Update : After receiving multiple queries and considering the concern raised, we have
+                decided to remove the “one girl mandatory per team” rule.</span>
+            <span>🚩 Important Update : After receiving multiple queries and considering the concern raised, we have
+                decided to remove the “one girl mandatory per team” rule.</span>
+        </div>
+    </div>
+    <canvas id="particles-canvas"></canvas>
+
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a class="nav-brand" href="https://huroorkee.ac.in/" target="_blank" rel="noopener noreferrer">
+                    <div class="nav-org-branding">
+                        <img src="assets/logo/HU-logo.png" alt="Haridwar University Logo" class="nav-hu-logo" />
+                        <div class="nav-hu-text">
+                            <span class="hu-name">Haridwar University</span>
+                            <span class="hu-presents">PRESENTS</span>
+                        </div>
+                    </div>
+                </a>
+                <a class="nav-brand" href="index.html">
+                    <div class="nav-event-branding">
+                        <img src="assets/logo/techwizard-logo-DUeFv3V1.png" alt="Tech Wizard 2.0 Logo"
+                            class="nav-logo" />
+                        <span class="nav-title">TECH WIZARD 2.0</span>
+                    </div>
+                </a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="problems.html">Problems</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="prizes.html">Prizes</a></li>
+                <li><a href="rules.html">Rules</a></li>
+                <li class="nav-dropdown active">
+                    <a href="#" class="active">Team <i class="fas fa-chevron-down nav-drop-icon"></i></a>
+                    <div class="nav-dropdown-content">
+                        <a href="faculty.html">Faculty Conveners</a>
+                        <a href="team.html">Student Coordinators</a>
+                    </div>
+                </li>
+                <li><a href="register.html" class="nav-cta">Register</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="page-hero">
+        <div class="page-hero-content">
+            <span class="section-tag">The Guiding Force</span>
+            <h1 class="page-hero-title">Faculty <span class="highlight">Conveners</span></h1>
+            <p class="page-hero-sub">The experienced mentors shaping the vision of Tech Wizard 2.0</p>
+        </div>
+    </div>
+
+    <section class="section coordinators-section">
+        <div class="container">
+            <!-- ===== FACULTY CONVENERS ===== -->
+            <div class="section-header" style="text-align: center; margin-bottom: 40px; margin-top: 20px;">
+                <h2 class="section-title" style="font-size: 2rem;">Faculty <span class="highlight">Conveners</span></h2>
+            </div>
+
+            <div class="team-row">
+                <!-- Dr. Rohit Kumar -->
+                <div class="coord-card">
+                    <div class="coord-img-wrap" style="height: 280px;">
+                        <img src="assets/team/faculty_coord/Dr. Rohit Kumar.jpg.jpeg" alt="Dr. Rohit Kumar"
+                            style="object-position: top;"
+                            onerror="this.src='assets/logo/techwizard-logo-DUeFv3V1.png'; this.style.objectFit='contain'; this.style.padding='40px';" />
+                        <div class="coord-overlay">
+                            <a href="mailto:rohit.kumar3522@gmail.com" class="coord-action" title="Email">✉️</a>
+                            <a href="https://www.linkedin.com/in/dr-rohit-kumar-46785093" class="coord-action"
+                                target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="coord-info">
+                        <span class="coord-role">Convener</span>
+                        <h3>Dr. Rohit Kumar</h3>
+                        <p class="coord-details"><strong>Head of Department</strong></p>
+                        <p class="coord-details">Computer Applications</p>
+                    </div>
+                </div>
+
+                <!-- Dr. Himanshu Verma -->
+                <div class="coord-card">
+                    <div class="coord-img-wrap" style="height: 280px;">
+                        <img src="assets/team/faculty_coord/Dr. Himanshu.jpg.jpeg" alt="Dr. Himanshu Verma"
+                            style="object-position: top;"
+                            onerror="this.src='assets/logo/techwizard-logo-DUeFv3V1.png'; this.style.objectFit='contain'; this.style.padding='40px';" />
+                        <div class="coord-overlay">
+                            <a href="mailto:hod.cse@huroorkee.ac.in" class="coord-action" title="Email">✉️</a>
+                            <a href="https://www.linkedin.com/in/dr-himanshu-verma-a4a93b15a" class="coord-action"
+                                target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="coord-info">
+                        <span class="coord-role">Convener</span>
+                        <h3>Dr. Himanshu Verma</h3>
+                        <p class="coord-details"><strong>Head of Department</strong></p>
+                        <p class="coord-details">Computer Science of Engineering</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-row">
+                <!-- Abhishek Parmar -->
+                <div class="coord-card">
+                    <div class="coord-img-wrap" style="height: 280px;">
+                        <img src="assets/team/faculty_coord/Abhishek Pramar.jpg.jpeg" alt="Abhishek Parmar"
+                            style="object-position: top;"
+                            onerror="this.src='assets/logo/techwizard-logo-DUeFv3V1.png'; this.style.objectFit='contain'; this.style.padding='40px';" />
+                        <div class="coord-overlay">
+                            <a href="tel:+917409627518" class="coord-action" title="Phone">📞</a>
+                            <a href="mailto:abhishekparmar.cse@huroorkee.ac.in" class="coord-action"
+                                title="Email">✉️</a>
+                        </div>
+                    </div>
+                    <div class="coord-info">
+                        <span class="coord-role">Co-Convener</span>
+                        <h3>Mr. Abhishek Parmar</h3>
+                        <p class="coord-details"><strong>Associate Professor</strong></p>
+                        <p class="coord-details">Computer Science of Engineering</p>
+                    </div>
+                </div>
+
+                <!-- Dr. Gopal Krishna -->
+                <div class="coord-card">
+                    <div class="coord-img-wrap" style="height: 280px;">
+                        <img src="assets/team/faculty_coord/Dr. Gopal Krishna.jpg.jpeg" alt="Dr. Gopal Krishna"
+                            style="object-position: top;"
+                            onerror="this.src='assets/logo/techwizard-logo-DUeFv3V1.png'; this.style.objectFit='contain'; this.style.padding='40px';" />
+                        <div class="coord-overlay">
+                            <a href="tel:+919358022035" class="coord-action" title="Phone">📞</a>
+                            <a href="mailto:gopalkrishna.cse@huroorkee.ac.in" class="coord-action" title="Email">✉️</a>
+                        </div>
+                    </div>
+                    <div class="coord-info">
+                        <span class="coord-role">Co-Convener</span>
+                        <h3>Dr. Gopal Krishna</h3>
+                        <p class="coord-details"><strong>Associate Professor</strong></p>
+                        <p class="coord-details">Computer Science of Engineering</p>
+                    </div>
+                </div>
+
+                <!-- Mr. Narayan Jee -->
+                <div class="coord-card">
+                    <div class="coord-img-wrap" style="height: 280px;">
+                        <img src="assets/team/faculty_coord/Narayan Ji.jpg.jpeg" alt="Mr. Narayan Jee"
+                            style="object-position: top;"
+                            onerror="this.src='assets/logo/techwizard-logo-DUeFv3V1.png'; this.style.objectFit='contain'; this.style.padding='40px';" />
+                        <div class="coord-overlay">
+                            <a href="tel:+919031208697" class="coord-action" title="Phone">📞</a>
+                            <a href="mailto:narayanjee.cse@huroorkee.ac.in" class="coord-action" title="Email">✉️</a>
+                        </div>
+                    </div>
+                    <div class="coord-info">
+                        <span class="coord-role">Co-Convener</span>
+                        <h3>Mr. Narayan Jee</h3>
+                        <p class="coord-details"><strong>Associate Professor</strong></p>
+                        <p class="coord-details">Computer Science of Engineering</p>
+                    </div>
+                </div>
+
+                <!-- Ms. Akansha -->
+                <div class="coord-card">
+                    <div class="coord-img-wrap" style="height: 280px;">
+                        <img src="assets/team/faculty_coord/Ms. Akansha.jpeg" alt="Mrs. Akansha"
+                            style="object-position: top;"
+                            onerror="this.src='assets/logo/techwizard-logo-DUeFv3V1.png'; this.style.objectFit='contain'; this.style.padding='40px';" />
+                        <div class="coord-overlay">
+                            <a href="tel:+918090508858" class="coord-action" title="Phone">📞</a>
+                            <a href="mailto:akanksha.udit30@gmail.com" class="coord-action" title="Email">✉️</a>
+                        </div>
+                    </div>
+                    <div class="coord-info">
+                        <span class="coord-role">Co-Convener</span>
+                        <h3>Mrs. Akansha</h3>
+                        <p class="coord-details"><strong>Associate Professor</strong></p>
+                        <p class="coord-details">Computer Applications</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-brand-item">
+                        <img src="assets/logo/techwizard-logo-DUeFv3V1.png" alt="Tech Wizard 2.0"
+                            class="footer-brand-logo" />
+                        <div class="footer-brand-text">
+                            <h3>Tech Wizard 2.0</h3>
+                            <p>National Hackathon – Haridwar University</p>
+                        </div>
+                    </a>
+                    <a href="index.html" class="footer-brand-item">
+                        <img src="assets/logo/trojan-club-logo.jpeg" alt="Trojan Tech Club"
+                            class="footer-brand-logo club-logo-circle" />
+                        <div class="footer-brand-text">
+                            <span>Organized by</span>
+                            <h4 class="club-name-monotech">Trojan Club</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="problems.html">Problems</a></li>
+                        <li><a href="schedule.html">Schedule</a></li>
+                        <li><a href="prizes.html">Prizes</a></li>
+                        <li><a href="rules.html">Rules</a></li>
+                        <li class="nav-dropdown">
+                            <a href="#">Team <i class="fas fa-chevron-down nav-drop-icon"></i></a>
+                            <div class="nav-dropdown-content">
+                                <a href="faculty.html">Faculty Conveners</a>
+                                <a href="team.html">Student Coordinators</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p>✉ <a href="mailto:tech.club.trojan@gmail.com">tech.club.trojan@gmail.com</a></p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/trojan_hu?igsh=dXdteDBndWh6aHMx" target="_blank"
+                            rel="noopener noreferrer" class="social-icon instagram" title="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/company/trojan-club-official/" target="_blank"
+                            rel="noopener noreferrer" class="social-icon linkedin" title="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                <rect x="2" y="9" width="4" height="12" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Haridwar University &middot; Trojan Tech Club</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-icon" id="modal-icon">ℹ️</div>
+            <h3 id="modal-title">Title</h3>
+            <p id="modal-desc">Description</p>
+            <div class="modal-btns">
+                <button class="btn btn-outline" id="modal-cancel">Go Back</button>
+                <a href="#" class="btn btn-primary" id="modal-proceed-btn" target="_blank"
+                    rel="noopener noreferrer">Proceed</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
