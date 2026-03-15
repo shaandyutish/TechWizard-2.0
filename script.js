@@ -108,8 +108,16 @@ const navDropdowns = document.querySelectorAll('.nav-dropdown');
 if (hamburger && navLinks) {
     hamburger.addEventListener('click', (e) => {
         e.stopPropagation();
-        navLinks.classList.toggle('open');
+        const isOpen = navLinks.classList.toggle('open');
         hamburger.classList.toggle('open');
+        document.body.classList.toggle('nav-menu-open');
+        
+        // Prevent scrolling when menu is open
+        if (isOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
     });
 
     // Handle clicks on nav links
@@ -127,6 +135,8 @@ if (hamburger && navLinks) {
             // For normal links, close the menu
             navLinks.classList.remove('open');
             hamburger.classList.remove('open');
+            document.body.classList.remove('nav-menu-open');
+            document.body.style.overflow = '';
         });
     });
 
@@ -135,6 +145,8 @@ if (hamburger && navLinks) {
         if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
             navLinks.classList.remove('open');
             hamburger.classList.remove('open');
+            document.body.classList.remove('nav-menu-open');
+            document.body.style.overflow = '';
         }
     });
 }

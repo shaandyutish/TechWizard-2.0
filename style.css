@@ -195,7 +195,7 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding-left: 14px;
+  padding-left: 5px;
   border-left: 1px solid var(--border-glow);
 }
 
@@ -213,6 +213,10 @@ body {
   font-weight: 700;
   color: var(--neon-cyan);
   letter-spacing: 2px;
+}
+
+.mobile-back {
+  display: none;
 }
 
 .nav-links {
@@ -373,7 +377,7 @@ body {
 .nav-cta {
   background: var(--gradient-accent) !important;
   color: #fff !important;
-  padding: 8px 22px !important;
+  padding: 6px 15px !important;
   border-radius: 25px !important;
   font-weight: 700 !important;
 }
@@ -992,8 +996,17 @@ body {
   display: flex;
   gap: 12px;
   justify-content: center;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
   flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+  .schedule-tabs {
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
 }
 
 .tab-btn {
@@ -2054,14 +2067,14 @@ body {
     top: 0;
     right: -100%;
     width: 85%;
-    max-width: 320px;
+    max-width: 200px;
     height: 100vh;
     background: rgba(8, 8, 25, 0.98);
     backdrop-filter: blur(20px);
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 100px 40px 40px;
+    padding: 20px 40px 40px;
     gap: 15px;
     transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     border-left: 1px solid var(--border-glow);
@@ -2069,7 +2082,26 @@ body {
   }
 
   .nav-links li {
+    width: 80%;
+  }
+
+  .mobile-back {
+    display: block;
     width: 100%;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .mobile-back a {
+    color: var(--neon-cyan) !important;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-transform: uppercase;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem !important;
   }
 
   .nav-links a {
@@ -2082,6 +2114,29 @@ body {
 
   .nav-links.open {
     right: 0;
+  }
+
+  /* Blur effect for sections/footer when mobile menu is open */
+  body.nav-menu-open .hero,
+  body.nav-menu-open .page-hero,
+  body.nav-menu-open .section,
+  body.nav-menu-open .footer,
+  body.nav-menu-open .announcement-bar,
+  body.nav-menu-open #particles-canvas,
+  body.nav-menu-open .nav-left {
+    filter: blur(8px);
+    pointer-events: none;
+  }
+
+  /* Transition for a smooth blur */
+  .hero,
+  .page-hero,
+  .section,
+  .footer,
+  .announcement-bar,
+  #particles-canvas,
+  .nav-left {
+    transition: filter 0.3s ease;
   }
 
   .nav-hu-text {
@@ -2099,11 +2154,28 @@ body {
   }
 
   .problems-grid,
-  .rules-grid,
+  .rules-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
   .footer-top,
   .info-grid {
     grid-template-columns: 1fr;
     gap: 24px;
+  }
+
+  .problem-card {
+    padding: 20px 15px;
+  }
+
+  .problem-icon {
+    font-size: 2rem;
+    margin-bottom: 12px;
+  }
+
+  .problem-card h3 {
+    font-size: 0.85rem;
   }
 
   .info-card {
@@ -2127,14 +2199,37 @@ body {
   }
 
   .prizes-grid {
-    flex-direction: column;
-    align-items: center;
-    gap: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
   }
 
   .prize-card.gold {
-    transform: scale(1);
+    width: 100%;
     order: -1;
+    transform: scale(1);
+    padding: 30px 20px;
+  }
+
+  .prize-card.silver,
+  .prize-card.bronze {
+    flex: 1;
+    min-width: 140px;
+    margin: 0;
+    padding: 24px 15px;
+  }
+
+  .prize-trophy {
+    font-size: 2.2rem;
+  }
+
+  .prize-amount {
+    font-size: 1.5rem;
+  }
+
+  .prize-rank {
+    font-size: 1rem;
   }
 
   .hero-stats {
@@ -2240,12 +2335,12 @@ body {
 
   /* Swiper Carousel Mobile Fix */
   .swiper-slide {
-    height: 300px !important;
-    min-height: 300px !important;
+    height: 250px !important;
+    min-height: 100px !important;
   }
 
   .zoom-image {
-    min-height: 300px !important;
+    min-height: 70px !important;
   }
 
   .slide-caption {
@@ -2295,7 +2390,7 @@ body {
 
 
   .page-hero {
-    padding: 100px 16px 40px;
+    padding: 120px 16px 15px;
   }
 
   .footer-brand {
