@@ -258,7 +258,7 @@ body {
   display: inline-block;
 }
 
-.nav-dropdown > .nav-item {
+.nav-dropdown>.nav-item {
   display: flex !important;
   align-items: center;
   gap: 8px;
@@ -333,7 +333,8 @@ body {
   .nav-dropdown-content {
     position: static;
     display: none;
-    background: rgba(180, 79, 255, 0.05); /* Subtle purple tint */
+    background: rgba(180, 79, 255, 0.05);
+    /* Subtle purple tint */
     border: none;
     border-left: 2px solid var(--neon-cyan);
     box-shadow: none;
@@ -586,6 +587,14 @@ body {
   font-weight: 600;
 }
 
+@media (max-width: 768px) {
+  .hero-tagline {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+  }
+}
+
 .hero-motto {
   font-family: 'Rajdhani', sans-serif;
   font-size: 1.3rem;
@@ -595,6 +604,14 @@ body {
   margin-bottom: 30px;
   letter-spacing: 1px;
   font-weight: 500;
+}
+
+@media (max-width: 480px) {
+  .hero-motto {
+    font-size: 1rem;
+    margin-top: -10px;
+    margin-bottom: 20px;
+  }
 }
 
 /* Stats */
@@ -1712,6 +1729,36 @@ body {
   flex-wrap: wrap;
 }
 
+/* Infinite Carousel for Powered By Sponsors */
+.sponsors-carousel {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 15px 0;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.sponsors-track {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  width: max-content;
+  animation: scroll-sponsors 20s linear infinite;
+}
+
+@keyframes scroll-sponsors {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 .sponsor-img {
   height: 40px;
   object-fit: contain;
@@ -1721,21 +1768,21 @@ body {
 
 .sponsor-img:hover {
   opacity: 1;
-  filter: grayscale(0%) drop-shadow(0 0 10px rgba(0, 255, 255, 0.4));
-  transform: translateY(-2px);
+  filter: drop-shadow(0 0 15px rgba(0, 245, 255, 0.5));
+  transform: translateY(-5px);
 }
 
 .sponsor-img1 {
-  height: 50px;
+  height: 65px;
   object-fit: contain;
-  opacity: 0.9;
+  opacity: 0.8;
   transition: all 0.3s ease;
 }
 
 .sponsor-img1:hover {
   opacity: 1;
-  filter: grayscale(0%) drop-shadow(0 0 10px rgb(255, 255, 255));
-  transform: translateY(-2px);
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.4));
+  transform: scale(1.1);
 }
 
 /* ===== TEAM SECTION ===== */
@@ -1965,6 +2012,19 @@ body {
 
 /* Mobile Devices (768px and below) */
 @media (max-width: 768px) {
+  .hero-btns {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .hero-btns .btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+
   .about-btn-wrap {
     text-align: center;
   }
@@ -2078,13 +2138,18 @@ body {
   }
 
   .hero-stats {
-    flex-wrap: wrap;
-    gap: 16px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto 30px;
   }
 
   .stat-card {
-    padding: 10px 16px;
-    flex: 1 1 120px;
+    padding: 8px 6px;
+    width: 100%;
   }
 
   .section-title {
@@ -2214,7 +2279,7 @@ body {
 /* Small Mobile (480px and below) */
 @media (max-width: 480px) {
   .hero-title {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 
   .hero-countdown {
