@@ -36,6 +36,14 @@ body {
   line-height: 1.6;
 }
 
+/* Anti-Theft: Applied only on live domain via script.js */
+.secure-mode {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
 /* ===== PARTICLES ===== */
 #particles-canvas {
   position: fixed;

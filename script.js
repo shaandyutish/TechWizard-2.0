@@ -41,6 +41,56 @@ const GOOGLE_FORM_FB_URL = 'https://forms.gle/YOUR_FEEDBACK_FORM_ID';
     }
 })();
 
+/* ===== UI HARDENING & ANTI-THEFT ===== */
+(function() {
+    // Check if we are on a local development environment
+    const isLocal = window.location.hostname === 'localhost' || 
+                    window.location.hostname === '127.0.0.1' || 
+                    window.location.protocol === 'file:';
+    
+    // Developer Message in Console
+    console.log(
+        "%cSTOP! %cThis is a protected website of Tech Wizard 2.0 (Trojan Club).",
+        "color: #ff2d78; font-size: 40px; font-weight: bold; text-shadow: 0 0 10px rgba(255,45,120,0.5);",
+        "color: #00f5ff; font-size: 20px;"
+    );
+
+    if (isLocal) {
+        console.log("%cDeveloper Mode Active: %cUI Hardening is disabled for local testing.", "color: #ffd700; font-weight: bold;", "color: #fff;");
+        return; // Exit and don't block anything for the dev
+    }
+
+    // --- LIVE SITE SECURITY ---
+
+    // 1. Enable CSS Selection Block Class
+    document.body.classList.add('secure-mode');
+
+    // 2. Disable Right-Click
+    document.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+        return false;
+    });
+
+    // 3. Disable Developer Tools Shortcuts
+    document.addEventListener('keydown', (e) => {
+        // F12
+        if (e.keyCode === 123) {
+            e.preventDefault();
+            return false;
+        }
+        // Ctrl+Shift+I (Inspect), Ctrl+Shift+J (Console), Ctrl+U (View Source), Ctrl+S (Save)
+        if (e.ctrlKey && (e.shiftKey && (e.keyCode === 73 || e.keyCode === 74) || e.keyCode === 85 || e.keyCode === 83)) {
+            e.preventDefault();
+            return false;
+        }
+    });
+
+    console.log(
+        "%cUnauthorized duplication, modification, or distribution of this source code is strictly prohibited. If you are here to learn, welcome! If you are here to steal, please respect the hard work of the organizers.",
+        "color: #a899cc; font-size: 14px;"
+    );
+})();
+
 /* ===== PARTICLES ===== */
 (function () {
     const canvas = document.getElementById('particles-canvas');
