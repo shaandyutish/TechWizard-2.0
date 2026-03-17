@@ -1759,6 +1759,18 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 40px;
   margin-top: -30px;
+  justify-content: center;
+  justify-items: center;
+}
+
+/* Specific Desktop Layout: 3 in 1st row, 1 centered in 2nd row */
+@media (min-width: 1025px) {
+  .sponsors-posters-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .sponsor-poster-card:nth-child(4) {
+    grid-column: 2;
+  }
 }
 
 .sponsor-poster-card {
@@ -1810,6 +1822,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top;
   transition: transform 0.6s ease;
 }
 
@@ -1936,20 +1949,14 @@ body {
 
   .sponsors-posters-grid {
     grid-template-columns: repeat(2, 1fr);
+    /* Force 2x2 layout */
     gap: 12px;
     margin-top: 10px;
-  }
-
-  /* Handle the 3rd card spanning full width for a balanced look */
-  .sponsor-poster-card:nth-child(3) {
-    grid-column: 1 / -1;
-    max-width: 320px;
-    margin-left: auto;
-    margin-right: auto;
+    justify-items: center;
   }
 
   .poster-badge {
-    top: -15px;
+    top: -30px;
     right: 50%;
     transform: translateX(50%);
     padding: 6px 12px;
@@ -1959,12 +1966,7 @@ body {
   }
 
   .poster-image {
-    height: 220px;
-  }
-
-  /* Adjust image height for the full-width 3rd card */
-  .sponsor-poster-card:nth-child(3) .poster-image {
-    height: 300px;
+    height: 200px;
   }
 
   .poster-content {
