@@ -376,20 +376,20 @@
             return prefix + Math.abs(hash).toString(16).toUpperCase().substring(0, 8);
         }
 
-        // QR CODE GENERATOR (Hidden)
+        // QR CODE GENERATOR (ULTRA-LOW DENSITY FOR MAX SCANNING SIZE)
         async function generateQRImage(text, size) {
             return new Promise((resolve) => {
                 const div = document.createElement('div');
                 new QRCode(div, {
                     text: text,
-                    width: size * 4, // Higher res for PDF
-                    height: size * 4,
-                    correctLevel: QRCode.CorrectLevel.H
+                    width: 512, // High resolution master
+                    height: 512,
+                    correctLevel: QRCode.CorrectLevel.L // Level L (Low) gives the largest modules (fewer dots)
                 });
                 setTimeout(() => {
                     const img = div.querySelector('img');
                     resolve(img ? img.src : null);
-                }, 100);
+                }, 150);
             });
         }
 
@@ -503,8 +503,8 @@
             const testDate = issueDateInput.value;
             const testId = generateCertId(testName);
             
-            // Build absolute URL for verification
-            const verifyUrl = `${window.location.origin}${window.location.pathname.replace('cert-gen.html', 'verify.html')}?id=${testId}&name=${encodeURIComponent(testName)}`;
+            // Build absolute URL for verification (Targeting shorter v.html)
+            const verifyUrl = `${window.location.origin}${window.location.pathname.replace('cert-gen.html', 'v.html')}?i=${testId}&n=${encodeURIComponent(testName)}`;
 
             try {
                 const pdfDoc = await PDFDocument.load(templateBytes, { ignoreEncryption: true });
@@ -590,7 +590,7 @@
                     const name = names[i];
                     const date = issueDateInput.value;
                     const certId = generateCertId(name);
-                    const verifyUrl = `${window.location.origin}${window.location.pathname.replace('cert-gen.html', 'verify.html')}?id=${certId}&name=${encodeURIComponent(name)}`;
+                    const verifyUrl = `${window.location.origin}${window.location.pathname.replace('cert-gen.html', 'v.html')}?i=${certId}&n=${encodeURIComponent(name)}`;
                     
                     status.innerText = `🔄 Processing Cert ${i+1}/${names.length}: ${name}`;
 

@@ -234,7 +234,7 @@
         function performVerification() {
             const inputId = document.getElementById('cert-id').value.trim();
             const urlParams = new URLSearchParams(window.location.search);
-            const nameFromUrl = urlParams.get('name');
+            const nameFromUrl = urlParams.get('n') || urlParams.get('name'); // Support both short and long
 
             const resultDiv = document.getElementById('result');
             resultDiv.style.display = 'block';
@@ -248,9 +248,7 @@
                     showError("Invalid Credential Signature.");
                 }
             } else {
-                // If name not in URL, we need to find it (In a real DB site we'd query here)
-                // For static site, we assume 99% will scan QR which HAS the name.
-                showError("Manual verification requires full ID and Name sync. Please scan the QR code on the certificate for instant verification.");
+                showError("Manual verification requires full ID and Name. Please scan the QR code for instant verification.");
             }
         }
 
@@ -283,8 +281,8 @@
         // AUTO-VERIFY ON LOAD IF PARAMS EXIST
         window.onload = () => {
             const urlParams = new URLSearchParams(window.location.search);
-            const id = urlParams.get('id');
-            const name = urlParams.get('name');
+            const id = urlParams.get('i') || urlParams.get('id'); // Support short and long
+            const name = urlParams.get('n') || urlParams.get('name');
 
             if (id && name) {
                 document.getElementById('cert-id').value = id;
