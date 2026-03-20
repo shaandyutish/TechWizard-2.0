@@ -189,7 +189,30 @@
 
                 <div class="control-group">
                     <label>2. Enter Participant Names (One per line)</label>
-                    <textarea id="name-list" placeholder="John Doe&#10;Jane Smith&#10;Alice Johnson"></textarea>
+                    <textarea id="name-list" placeholder="John Doe&#10;Jane Smith&#10;Alice Johnson" style="height: 120px;"></textarea>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div class="control-group">
+                        <label>Issue Date</label>
+                        <input type="text" id="issue-date" value="27th March 2026" placeholder="e.g. 27th March 2026">
+                    </div>
+                    <div class="control-group">
+                        <label>Cert ID Prefix</label>
+                        <input type="text" id="cert-id-prefix" value="TW.26-" placeholder="e.g. TW.26-">
+                    </div>
+                </div>
+
+                <div class="control-group" style="border: 1px solid var(--neon-cyan); padding: 15px; border-radius: 12px; margin-top: 10px;">
+                    <label style="color: var(--neon-cyan);">🎚️ Active Layout Settings</label>
+                    <div style="margin-bottom: 10px;">
+                        <span style="font-size: 0.8rem; color: var(--text-secondary);">Select the field you want to position:</span>
+                        <select id="field-selector" style="width: 100%; margin-top: 5px; background: rgba(0,0,0,0.3); border: 1px solid #444; color: #fff; padding: 10px; border-radius: 8px;">
+                            <option value="name">1. Participant Name</option>
+                            <option value="date">2. Issue Date</option>
+                            <option value="id">3. Certificate ID</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div class="control-group">
@@ -255,6 +278,14 @@
                         <input type="number" id="font-size-num" min="10" max="150" value="45" style="width:70px;">
                     </div>
                 </div>
+
+                <div style="background: rgba(0, 245, 255, 0.05); padding: 15px; border-radius: 12px; margin-top: 20px;">
+                    <h4 style="margin: 0 0 10px 0; font-size: 0.9rem; color: var(--neon-cyan);">Studio Controls</h4>
+                    <button id="generate-btn" class="btn btn-primary" style="width: 100%; font-size: 1.1rem; padding: 15px;">
+                        GENERATE & DOWNLOAD ALL PDFS
+                    </button>
+                    <div id="status" class="status-msg">Upload a template to start.</div>
+                </div>
             </div>
 
             <!-- Right Side: Preview -->
@@ -267,11 +298,6 @@
         </div>
 
         <div class="btn-group">
-            <button id="generate-btn" class="btn btn-primary" disabled>Generate & Download All PDFs</button>
-        </div>
-        <div id="status" class="status-msg"></div>
-    </div>
-
     <script>
         const { PDFDocument, rgb, StandardFonts } = PDFLib;
         const upload = document.getElementById('pdf-upload');
@@ -287,24 +313,54 @@
         const sizeSlider = document.getElementById('font-size');
         const sizeNum = document.getElementById('font-size-num');
 
+        const fieldSelector = document.getElementById('field-selector');
+        const issueDateInput = document.getElementById('issue-date');
+        const certIdPrefixInput = document.getElementById('cert-id-prefix');
+
+        let layout = {
+            name: { x: 0, y: 450, s: 45 },
+            date: { x: 0, y: 650, s: 18 },
+            id: { x: 0, y: 720, s: 15 }
+        };
+
         function syncInput(slider, num) {
             slider.addEventListener('input', () => {
                 num.value = slider.value;
+                saveActiveState();
                 updatePreview();
             });
             num.addEventListener('input', () => {
                 slider.value = num.value;
+                saveActiveState();
                 updatePreview();
             });
         }
+
+        function saveActiveState() {
+            const field = fieldSelector.value;
+            layout[field] = {
+                x: parseInt(xSlider.value),
+                y: parseInt(ySlider.value),
+                s: parseInt(sizeSlider.value)
+            };
+        }
+
+        function loadActiveState() {
+            const config = layout[fieldSelector.value];
+            xSlider.value = config.x; xNum.value = config.x;
+            ySlider.value = config.y; yNum.value = config.y;
+            sizeSlider.value = config.s; sizeNum.value = config.s;
+            updatePreview(); // Update preview after loading new state
+        }
+
+        fieldSelector.addEventListener('change', loadActiveState);
+        [issueDateInput, certIdPrefixInput].forEach(el => el.addEventListener('input', updatePreview));
 
         syncInput(ySlider, yNum);
         syncInput(xSlider, xNum);
         syncInput(sizeSlider, sizeNum);
 
         let templateBytes = null;
-        let pdfDoc = null;
-        let poppinsFont = null;
 
         const fontChoice = document.getElementById('font-choice');
         const fontColor = document.getElementById('font-color');
@@ -387,6 +443,8 @@
             if (!templateBytes) return;
             const names = nameList.value.split('\n').filter(n => n.trim() !== "");
             const testName = names.length > 0 ? names[0] : "SAMPLE NAME";
+            const testDate = issueDateInput.value;
+            const testId = certIdPrefixInput.value + "001";
 
             try {
                 // Ignore encryption and use a more flexible loading strategy
@@ -397,23 +455,27 @@
                 let customFont = fontBytes ? await pdfDoc.embedFont(fontBytes) : null;
 
                 const pages = pdfDoc.getPages();
-                const firstPage = pages[0];
-                const { width, height } = firstPage.getSize();
-                const fontSize = parseInt(sizeSlider.value);
-                const xOffset = parseInt(xSlider.value);
-                const yPos = parseInt(ySlider.value);
+                const page = pages[0];
+                const { width, height } = page.getSize();
                 const textColor = hexToPdfRgb(fontColor.value);
 
-                const textWidth = customFont ? customFont.widthOfTextAtSize(testName, fontSize) : testName.length * (fontSize * 0.5);
-                const centerX = (width / 2) - (textWidth / 2) + xOffset;
+                // Drawing Helper
+                const drawField = (text, config) => {
+                    if (!text) return;
+                    const tw = customFont ? customFont.widthOfTextAtSize(text, config.s) : text.length * (config.s * 0.5);
+                    const cx = (width / 2) - (tw / 2) + config.x;
+                    page.drawText(text, {
+                        x: cx,
+                        y: height - config.y,
+                        size: config.s,
+                        font: customFont,
+                        color: textColor
+                    });
+                };
 
-                firstPage.drawText(testName, {
-                    x: centerX,
-                    y: height - yPos,
-                    size: fontSize,
-                    font: customFont,
-                    color: textColor,
-                });
+                drawField(testName, layout.name);
+                drawField(testDate, layout.date);
+                drawField(testId, layout.id);
 
                 const pdfBytes = await pdfDoc.save();
                 const blob = new Blob([pdfBytes], { type: 'application/pdf' });
@@ -458,14 +520,20 @@
                 
                 for (let i = 0; i < names.length; i++) {
                     const name = names[i];
+                    const date = issueDateInput.value;
+                    const certId = certIdPrefixInput.value + (i + 1).toString().padStart(3, '0');
+                    
                     status.innerText = `Processing: ${i+1}/${names.length} - ${name}`;
 
                     const tempDoc = await PDFDocument.load(templateBytes, { ignoreEncryption: true });
                     tempDoc.registerFontkit(fontkit);
                     const customFont = fontBytes ? await tempDoc.embedFont(fontBytes) : null;
-
-                    // ADD OFFICIAL METADATA TO PREVENT SECURITY WARNINGS
+                    
+                    // ADD OFFICIAL METADATA
                     tempDoc.setTitle(`Tech Wizard 2.0 Certificate - ${name}`);
+                    tempDoc.setAuthor('Trojan Club - Haridwar University');
+                    tempDoc.setSubject('Event Participation Certificate');
+                    tempDoc.setKeywords(['Tech Wizard', 'Hackathon', 'Certificate', '2.0']);
                     tempDoc.setCreator('Tech Wizard 2.0 - Certificate Studio');
                     tempDoc.setProducer('Tech Wizard 2.0');
                     tempDoc.setCreationDate(new Date());
@@ -473,27 +541,36 @@
 
                     const page = tempDoc.getPages()[0];
                     const { width, height } = page.getSize();
-                    const fontSize = parseInt(sizeSlider.value);
-                    const xOffset = parseInt(xSlider.value);
-                    const yPos = parseInt(ySlider.value);
+                    const textColor = hexToPdfRgb(fontColor.value);
 
-                    const textWidth = customFont ? customFont.widthOfTextAtSize(name, fontSize) : name.length * (fontSize * 0.5);
-                    const centerX = (width / 2) - (textWidth / 2) + xOffset;
+                    // Drawing Helper
+                    const drawField = (text, config) => {
+                        if (!text) return;
+                        const tw = customFont ? customFont.widthOfTextAtSize(text, config.s) : text.length * (config.s * 0.5);
+                        const cx = (width / 2) - (tw / 2) + config.x;
+                        page.drawText(text, {
+                            x: cx,
+                            y: height - config.y,
+                            size: config.s,
+                            font: customFont,
+                            color: textColor
+                        });
+                    };
 
-                    page.drawText(name, {
-                        x: centerX,
-                        y: height - yPos,
-                        size: fontSize,
-                        font: customFont,
-                        color: textColor,
-                    });
+                    drawField(name, layout.name);
+                    drawField(date, layout.date);
+                    drawField(certId, layout.id);
 
                     const pdfBytes = await tempDoc.save();
-                    zip.file(`Cert_${name.replace(/\s+/g, '_')}.pdf`, pdfBytes);
+                    // Use 'store' method (no compression) which is often seen as "safer" by Windows Defender
+                    zip.file(`Certificate_${name.replace(/\s+/g, '_')}.pdf`, pdfBytes, {binary: true});
                 }
                 
-                status.innerText = "Building ZIP...";
-                const zipBlob = await zip.generateAsync({type: "blob"});
+                status.innerText = "Finalizing Secure Package...";
+                const zipBlob = await zip.generateAsync({
+                    type: "blob",
+                    compression: "STORE" // Switching to STORE for maximum compatibility
+                });
                 download(zipBlob, "TechWizard_Certificates.zip", "application/zip");
                 status.innerText = "Bulk Download Ready!";
             } catch (err) {
