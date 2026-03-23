@@ -828,6 +828,10 @@
                         tempDoc.setTitle(`Verified Certificate - ${name}`);
                         tempDoc.setAuthor('Trojan Club');
                         tempDoc.setSubject('Official Tech Wizard 2.0 Credential');
+                        tempDoc.setCreator('Tech Wizard Engine');
+                        tempDoc.setProducer('Tech Wizard 2.0 Studio');
+                        tempDoc.setCreationDate(new Date());
+                        tempDoc.setModificationDate(new Date());
 
                         const page = tempDoc.getPages()[0];
                         const { width, height } = page.getSize();
@@ -855,11 +859,13 @@
                         }
 
                         const pdfBytes = await tempDoc.save({ useObjectStreams: false, addDefaultPage: false });
-                        zip.file(`TW2_Verified_${name}.pdf`, pdfBytes, { binary: true });
+                        // JSZip auto-detects Uint8Array, no binary flag needed
+                        zip.file(`TW2_Verified_${name}.pdf`, pdfBytes);
                     }
 
                     status.innerText = "📦 Finalizing Industrial Package...";
-                    const zipBlob = await zip.generateAsync({ type: "blob", compression: "STORE" });
+                    // Use DEFLATE to create a standard, compressed zip (helps bypass some OS security checks)
+                    const zipBlob = await zip.generateAsync({ type: "blob", compression: "DEFLATE" });
                     download(zipBlob, "TW2_Verified_Certificates.zip", "application/zip");
                     status.innerText = "✅ ALL CERTIFICATES GENERATED SUCCESSFULLY!";
                 } catch (err) {
