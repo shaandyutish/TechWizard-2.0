@@ -212,58 +212,66 @@
         <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
     </div>
 
-    <script>
-        // CRYPTOGRAPHIC VERIFICATION LOGIC (Matches Admin Tool)
-        function verifyCertificate(id, name) {
-            if (!id || !name) return false;
-            
-            // Re-calculate the hash
-            let hash = 0;
-            const secret = "TECHWIZARD_SECRET_KEY";
-            const str = name + secret;
-            for (let i = 0; i < str.length; i++) {
-                hash = ((hash << 5) - hash) + str.charCodeAt(i);
-                hash |= 0;
-            }
-            const expectedIdTail = Math.abs(hash).toString(16).toUpperCase().substring(0, 8);
-            
-            // Check if the ID ends with this hash
-            return id.endsWith(expectedIdTail);
-        }
+    <!-- FIREBASE CLOUD (GCP) -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
 
-        function performVerification() {
+    <script>
+        // TODO: Paste the same Config here from cert-gen.html!
+        const firebaseConfig = {
+            apiKey: "AIzaSyDPYXHwl4i0gNWJEzHwaN9UdesBdSwWQKU",
+            authDomain: "tech-wizard-certificates.firebaseapp.com",
+            projectId: "tech-wizard-certificates",
+            storageBucket: "tech-wizard-certificates.firebasestorage.app",
+            messagingSenderId: "1058371501731",
+            appId: "1:1058371501731:web:0d3c8cde0086e0027a0916"
+        };
+        
+        let db;
+        try {
+            firebase.initializeApp(firebaseConfig);
+            db = firebase.firestore();
+        } catch(e) { console.warn("Cloud connection not ready."); }
+
+        async function performVerification() {
             const inputId = document.getElementById('cert-id').value.trim();
             const urlParams = new URLSearchParams(window.location.search);
-            const nameFromUrl = urlParams.get('n') || urlParams.get('name'); // Support both short and long
+            const nameFromUrl = urlParams.get('n') || urlParams.get('name');
 
             const resultDiv = document.getElementById('result');
             resultDiv.style.display = 'block';
+            resultDiv.innerHTML = '<div style="color:var(--neon-cyan)">Searching Official Cloud Records...</div>';
 
-            // IF name is in URL, we can verify instantly
-            if (nameFromUrl) {
-                const isValid = verifyCertificate(inputId, nameFromUrl);
-                if (isValid) {
-                    showSuccess(nameFromUrl, inputId);
-                } else {
-                    showError("Invalid Credential Signature.");
-                }
-            } else {
-                showError("Manual verification requires full ID and Name. Please scan the QR code for instant verification.");
+            // 1. CLOUD VERIFICATION (The Truth)
+            if (db && inputId) {
+                try {
+                    const doc = await db.collection("certificates").doc(inputId).get();
+                    if (doc.exists) {
+                        const data = doc.data();
+                        // Verify name matches or is similar
+                        if (data.name.toLowerCase() === (nameFromUrl || "").toLowerCase() || !nameFromUrl) {
+                            showSuccess(data.name, inputId, data.date);
+                            return;
+                        }
+                    }
+                } catch(e) { console.error("Cloud Error:", e); }
             }
+
+            // 2. FALLBACK/ERROR
+            showError("Credential not found in our official database. Please ensure the ID is correct.");
         }
 
-        function showSuccess(name, id) {
+        function showSuccess(name, id, date) {
             const resultDiv = document.getElementById('result');
             resultDiv.className = 'success-box';
             resultDiv.innerHTML = `
                 <div class="status-icon"><i class="fas fa-check-circle"></i></div>
                 <h3 style="color: #00ff80;">Official Certificate Verified</h3>
-                <p style="margin-top: 10px; font-size: 0.9rem; color: #888;">This document is an authentic digital credential issued by the Haridwar University Tech Wizard 2.0 Organizing Committee.</p>
                 <div class="cert-info">
                     <div class="info-row"><span class="info-label">Issued To:</span> <span class="info-value">${name}</span></div>
                     <div class="info-row"><span class="info-label">Credential ID:</span> <span class="info-value" style="color:var(--neon-cyan)">${id}</span></div>
-                    <div class="info-row"><span class="info-label">Event:</span> <span class="info-value">Tech Wizard 2.0</span></div>
-                    <div class="info-row"><span class="info-label">Verification Status:</span> <span class="info-value" style="color:#00ff80">✅ AUTHENTIC</span></div>
+                    <div class="info-row"><span class="info-label">Issue Date:</span> <span class="info-value">${date || "N/A"}</span></div>
+                    <div class="info-row"><span class="info-label">Status:</span> <span class="info-value" style="color:#00ff80">✅ AUTHENTIC CLOUD RECORD</span></div>
                 </div>
             `;
         }

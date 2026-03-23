@@ -12,14 +12,15 @@
             window.location.href = 'index.html'; // Redirect unauthorized users
         }
     </script>
-    <!-- pdf-lib is a powerful library to modify PDFs in the browser -->
-    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
-    <!-- JSZip for bulk bundling -->
+    <!-- LIBRARIES -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    <!-- xlsx for Excel/CSV parsing -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-    <!-- QRCode for verification links -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    
+    <!-- FIREBASE CLOUD (GCP) -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
     <!-- fontkit is required for embedding custom fonts in pdf-lib -->
     <script src="https://unpkg.com/@pdf-lib/fontkit@1.1.1/dist/fontkit.umd.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Orbitron:wght@700&display=swap"
@@ -363,17 +364,33 @@
             reader.readAsBinaryString(file);
         });
 
-        // UNIQUE ID GENERATION (Self-Verifying Hash)
-        function generateCertId(name) {
-            const prefix = certIdPrefixInput.value;
-            // Simple hash for demo verification
-            let hash = 0;
-            const str = name + "TECHWIZARD_SECRET_KEY"; // Salt for consistency
-            for (let i = 0; i < str.length; i++) {
-                hash = ((hash << 5) - hash) + str.charCodeAt(i);
-                hash |= 0;
-            }
-            return prefix + Math.abs(hash).toString(16).toUpperCase().substring(0, 8);
+        // -------------------------------------------------------------------
+        // CLOUD (GCP) INITIALIZATION
+        // -------------------------------------------------------------------
+        // TODO: Replace with your actual config from Phase 3 of the guide!
+        const firebaseConfig = {
+            apiKey: "AIzaSyDPYXHwl4i0gNWJEzHwaN9UdesBdSwWQKU",
+            authDomain: "tech-wizard-certificates.firebaseapp.com",
+            projectId: "tech-wizard-certificates",
+            storageBucket: "tech-wizard-certificates.firebasestorage.app",
+            messagingSenderId: "1058371501731",
+            appId: "1:1058371501731:web:0d3c8cde0086e0027a0916"
+        };
+        
+        let db;
+        try {
+            firebase.initializeApp(firebaseConfig);
+            db = firebase.firestore();
+            console.log("☁️ GCP Firestore Initialized!");
+        } catch(e) {
+            console.warn("⚠️ Firebase keys missing. Cloud Sync is disabled.");
+        }
+
+        // 20-CHARACTER CRYPTOGRAPHIC ID GENERATOR (Non-Reusable)
+        function generateUniqueId() {
+            const array = new Uint8Array(10);
+            window.crypto.getRandomValues(array);
+            return Array.from(array, byte => byte.toString(16).padStart(2, '0')).join('');
         }
 
         // QR CODE GENERATOR (ULTRA-LOW DENSITY FOR MAX SCANNING SIZE)
@@ -499,9 +516,9 @@
         async function updatePreview() {
             if (!templateBytes) return;
             const names = nameList.value.split('\n').filter(n => n.trim() !== "");
-            const testName = names.length > 0 ? names[0] : "SAMPLE NAME";
+            const testName = nameList.value.split('\n')[0] || "Sample Name";
             const testDate = issueDateInput.value;
-            const testId = generateCertId(testName);
+            const testId = generateUniqueId();
             
             // Build absolute URL for verification (Targeting shorter v.html)
             const verifyUrl = `${window.location.origin}${window.location.pathname.replace('cert-gen.html', 'v.html')}?i=${testId}&n=${encodeURIComponent(testName)}`;
@@ -589,9 +606,21 @@
                 for (let i = 0; i < names.length; i++) {
                     const name = names[i];
                     const date = issueDateInput.value;
-                    const certId = generateCertId(name);
+                    const certId = generateUniqueId();
                     const verifyUrl = `${window.location.origin}${window.location.pathname.replace('cert-gen.html', 'v.html')}?i=${certId}&n=${encodeURIComponent(name)}`;
                     
+                    // SAVE TO CLOUD (GCP FIRESTORE)
+                    if(db) {
+                        try {
+                            await db.collection("certificates").doc(certId).set({
+                                id: certId,
+                                name: name,
+                                date: date,
+                                issuedAt: firebase.firestore.FieldValue.serverTimestamp()
+                            });
+                        } catch(e) { console.error("Cloud Sync Error:", e); }
+                    }
+
                     status.innerText = `🔄 Processing Cert ${i+1}/${names.length}: ${name}`;
 
                     const tempDoc = await PDFDocument.load(templateBytes, { ignoreEncryption: true });
