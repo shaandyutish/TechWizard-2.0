@@ -631,16 +631,16 @@
                     // SMARTER FILENAME RESOLVER
                     const fontPaths = [
                         // Strategy 1: Styled Static subfolder
-                        `https://cdn.jsdelivr.net/gh/google/fonts@main/ofl/${repoPath}/static/${cleanName}-${stylePart}.ttf`,
+                        `https://raw.githubusercontent.com/google/fonts/main/ofl/${repoPath}/static/${cleanName}-${stylePart}.ttf`,
                         // Strategy 2: Styled Direct folder
-                        `https://cdn.jsdelivr.net/gh/google/fonts@main/ofl/${repoPath}/${cleanName}-${stylePart}.ttf`,
+                        `https://raw.githubusercontent.com/google/fonts/main/ofl/${repoPath}/${cleanName}-${stylePart}.ttf`,
                         // Strategy 3: Regular Static Fallback (if Bold/Italic missing)
-                        `https://cdn.jsdelivr.net/gh/google/fonts@main/ofl/${repoPath}/static/${cleanName}-Regular.ttf`,
+                        `https://raw.githubusercontent.com/google/fonts/main/ofl/${repoPath}/static/${cleanName}-Regular.ttf`,
                         // Strategy 4: Regular Direct Fallback
-                        `https://cdn.jsdelivr.net/gh/google/fonts@main/ofl/${repoPath}/${cleanName}-Regular.ttf`,
+                        `https://raw.githubusercontent.com/google/fonts/main/ofl/${repoPath}/${cleanName}-Regular.ttf`,
                         // Strategy 5: Variable font naming
-                        `https://cdn.jsdelivr.net/gh/google/fonts@main/ofl/${repoPath}/${cleanName}[wght].ttf`,
-                        `https://cdn.jsdelivr.net/gh/google/fonts@main/ofl/${repoPath}/${cleanName}-VariableFont_wght.ttf`
+                        `https://raw.githubusercontent.com/google/fonts/main/ofl/${repoPath}/${cleanName}[wght].ttf`,
+                        `https://raw.githubusercontent.com/google/fonts/main/ofl/${repoPath}/${cleanName}-VariableFont_wght.ttf`
                     ];
 
                     for (let url of fontPaths) {
@@ -652,8 +652,8 @@
                     
                     throw new Error("All strategies failed");
                 } catch (e) {
-                    // LAST DESORT FALLBACK (Poppins)
-                    return await fetch('https://cdn.jsdelivr.net/gh/google/fonts@main/ofl/poppins/Poppins-Medium.ttf').then(res => res.arrayBuffer());
+                    // LAST DESORT FALLBACK (Direct from Raw GitHub instead of jsdelivr)
+                    return await fetch('https://raw.githubusercontent.com/google/fonts/main/ofl/poppins/Poppins-Medium.ttf').then(res => res.arrayBuffer());
                 }
             }
 
